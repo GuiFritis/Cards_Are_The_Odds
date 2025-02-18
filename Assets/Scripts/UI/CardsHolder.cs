@@ -1,26 +1,36 @@
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class CardsHolder : MonoBehaviour
 {
-    private List<GameObject> _cards = new();
+    [SerializeField] private List<CardUI> _cards = new();
 
-    private void OrganizaCards()
+    private void Start()
+    {
+        OrganizeCards();
+    }
+
+    [Button]
+    private void OrganizeCards()
     {
         for (int i = 0; i < _cards.Count; i++)
         {
-            _cards[i].transform.rotation = Quaternion.Euler(Vector3.forward * (20 - (10 * i)));
-            _cards[i].transform.position = new Vector3(-160 + (80 * i), CardPositionY(i));
+            _cards[i].SetPosition(
+                new Vector3(-160 + (80 * i), CardPositionY(i)), 
+                Quaternion.Euler(Vector3.forward * (20 - (10 * i))), 
+                i
+            );
         }
     }
 
     private float CardPositionY(int i) => i switch
     {
-        1   =>  32,
-        2   =>  12,
-        3   =>  6,
-        4   =>  12,
-        5   =>  32,
-        _ => 6
+        0   =>  -64,
+        1   =>  -44,
+        2   =>  -36,
+        3   =>  -44,
+        4   =>  -64,
+        _ => -36
     };
 }
