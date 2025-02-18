@@ -13,6 +13,11 @@ public class HealthBase : MonoBehaviour
     public float CurrentHealth {get => _curHealth;}
     private bool dead = false;
 
+    private void Awake()
+    {
+        ResetLife();
+    }
+
     public void ResetLife()
     {
         ResetLife(baseHealth);

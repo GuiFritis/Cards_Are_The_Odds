@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -9,6 +10,12 @@ public class CardsHolder : MonoBehaviour
     private void Start()
     {
         OrganizeCards();
+    }
+
+    [Button]
+    private void GetChildrenCard()
+    {
+        _cards = GetComponentsInChildren<CardUI>().ToList();
     }
 
     [Button]

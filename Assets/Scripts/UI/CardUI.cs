@@ -3,12 +3,32 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 using Utils;
 
-public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [SerializeField] private float _transitionDuration = .4f;
     [SerializeField] private float _targetPositionY = 80f;
     [SerializeField] private float _scaleChange = 1.3f; 
     private InitialPosition _initialPosition;
+    private CardBase cardBase;
+
+    void OnValidate()
+    {
+        if(cardBase == null)
+        {
+            cardBase = GetComponent<CardBase>();
+        }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if(cardBase.CanUse())
+        {
+            cardBase.Use();
+            transform.DOKill();
+            transform.DOScale(0, _transitionDuration);
+            enabled = false;
+        }
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {

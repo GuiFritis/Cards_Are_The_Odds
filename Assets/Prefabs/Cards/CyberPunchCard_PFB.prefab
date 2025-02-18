@@ -356,8 +356,9 @@ GameObject:
   - component: {fileID: 5016472049301940704}
   - component: {fileID: 94383573392120229}
   - component: {fileID: 7862162078088534042}
+  - component: {fileID: 7336344073641805764}
   m_Layer: 5
-  m_Name: Card_PFB
+  m_Name: CyberPunchCard_PFB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -439,6 +440,20 @@ MonoBehaviour:
   _transitionDuration: 0.4
   _targetPositionY: 40
   _scaleChange: 1.3
+--- !u!114 &7336344073641805764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3932712871042572770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4506bdb8cb7223745be43270b7dd6312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardSO: {fileID: 11400000, guid: 554b2b491c4065747a3f07336404344f, type: 2}
+  combustivel: {fileID: 11400000, guid: 6e3d0b6faabccc443bf62a6bccbc0e90, type: 2}
 --- !u!1 &4573145115085607895
 GameObject:
   m_ObjectHideFlags: 0

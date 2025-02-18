@@ -5,6 +5,7 @@ public class OnDamageDisplayText : MonoBehaviour
 {
     [SerializeField] private HealthBase _health;
     [SerializeField] private float _spawnTextOffsetY;
+    [SerializeField] private bool _uiPosition = false;
     private DamageText_UI _damageText;
     private Camera _camera;
 
@@ -28,7 +29,10 @@ public class OnDamageDisplayText : MonoBehaviour
         {
             _damageText = DamageText_Pooling.Instance.GetPoolItem();
             _damageText.TextMesh.text = (damage <= 1 ? 1 : Mathf.Round(damage)).ToString();
-            _damageText.transform.position = _camera.WorldToScreenPoint(transform.position + (_spawnTextOffsetY * Vector3.up));
+            _damageText.transform.position = _uiPosition 
+                    ? transform.position + (_spawnTextOffsetY * Vector3.up)
+                    : _camera.WorldToScreenPoint(transform.position + (_spawnTextOffsetY * Vector3.up));
+            _damageText.TextMesh.color = damage > 0 ? Color.yellow : Color.green;
             _damageText.Play();
         }
     }
