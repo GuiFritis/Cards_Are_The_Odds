@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad481ad918608874eb82f55041a3f4c0, type: 3}
+  m_Name: Flamethrower
+  m_EditorClassIdentifier: 
+  nome: Flamethrower
+  descricao: A burst of flames dealing heavy damage and burning enemies.
+  cardType: 2
+  dano: 16
+  combustivel: 8
+  falha: 5
+  sucesso: 13
+  cardPFB: {fileID: 0}

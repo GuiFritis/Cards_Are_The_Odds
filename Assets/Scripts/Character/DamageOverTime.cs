@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Character))]
 public class DamageOverTime : MonoBehaviour
 {
     private List<DamageTurns> _damageOnTurnStart = new();

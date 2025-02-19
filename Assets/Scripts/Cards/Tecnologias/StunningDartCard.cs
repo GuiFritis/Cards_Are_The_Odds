@@ -1,17 +1,15 @@
 using UnityEngine;
 
-public class HiddenBladeCard : CardBase
+public class StunningDart : CardBase
 {
-    [SerializeField] private int _bleedDamage;
-    [SerializeField] private int _bleedDuration;
-
     public override bool CanUse()
     {
-        return true;
+        return _fuel.Value > _cardSO.combustivel;
     }
 
     public override void Activate(int advantage = 0)
     {
+        _fuel.Value -= _cardSO.combustivel;
         int result = Dice.Instance.ThrowDice(advantage);
         OnCardUsed?.Invoke(this);
         switch (result)
@@ -30,19 +28,18 @@ public class HiddenBladeCard : CardBase
 
     private void SucessoCritico()
     {
-        _enemy.Health.TakeDamage(_cardSO.dano);
-        _enemy.DmgOverTime.AddDamageOnTurnStart(_bleedDuration, _bleedDamage);
-        _fuel.Value += _cardSO.combustivel;
+        _enemy.Health.TakeDamage(_cardSO.dano * 3);
+        _enemy.Stun();
     }
 
     private void Sucesso()
     {
         _enemy.Health.TakeDamage(_cardSO.dano);
-        _fuel.Value += _cardSO.combustivel;
+        _enemy.Stun();
     }
 
     private void FalhaCritica()
     {
-        _player.Health.TakeDamage(_cardSO.dano/2);
+        _player.Stun();
     }
 }

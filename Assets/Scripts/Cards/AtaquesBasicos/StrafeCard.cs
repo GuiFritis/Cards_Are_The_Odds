@@ -1,9 +1,10 @@
 using UnityEngine;
 
-public class HiddenBladeCard : CardBase
+public class StrafeCard : CardBase
 {
-    [SerializeField] private int _bleedDamage;
-    [SerializeField] private int _bleedDuration;
+    [SerializeField] private int _shots = 3;
+    [SerializeField] private int _criticalShots = 4;
+    [SerializeField] private int _selfDamageShots = 2;
 
     public override bool CanUse()
     {
@@ -30,19 +31,27 @@ public class HiddenBladeCard : CardBase
 
     private void SucessoCritico()
     {
-        _enemy.Health.TakeDamage(_cardSO.dano);
-        _enemy.DmgOverTime.AddDamageOnTurnStart(_bleedDuration, _bleedDamage);
-        _fuel.Value += _cardSO.combustivel;
+        for (int i = 0; i < _criticalShots; i++)
+        {
+            _enemy.Health.TakeDamage(_cardSO.dano);
+            _fuel.Value += _cardSO.combustivel;
+        }
     }
 
     private void Sucesso()
     {
-        _enemy.Health.TakeDamage(_cardSO.dano);
-        _fuel.Value += _cardSO.combustivel;
+        for (int i = 0; i < _shots; i++)
+        {
+            _enemy.Health.TakeDamage(_cardSO.dano);
+            _fuel.Value += _cardSO.combustivel;
+        }
     }
 
     private void FalhaCritica()
     {
-        _player.Health.TakeDamage(_cardSO.dano/2);
+        for (int i = 0; i < _selfDamageShots; i++)
+        {
+            _player.Health.TakeDamage(_cardSO.dano);
+        }
     }
 }

@@ -14,10 +14,10 @@ public class CyberPunchCard : CardBase
             case 20:
                 SucessoCritico();
                 break;
-            case var _ when result >= cardSO.sucesso:
+            case var _ when result >= _cardSO.sucesso:
                 Sucesso();
                 break;
-            case var _ when result < cardSO.falha:
+            case var _ when result < _cardSO.falha:
                 FalhaCritica();
                 break;
         }
@@ -25,21 +25,21 @@ public class CyberPunchCard : CardBase
 
     private void SucessoCritico()
     {
-        _enemy.Health.TakeDamage(cardSO.dano * 2);
-        combustivel.Value += ((CardAtaqueBasicoSO)cardSO).combustivelGerado;
+        _enemy.Health.TakeDamage(_cardSO.dano * 2);
+        _fuel.Value += _cardSO.combustivel;
     }
 
     private void Sucesso()
     {
-        _enemy.Health.TakeDamage(cardSO.dano);
-        combustivel.Value += ((CardAtaqueBasicoSO)cardSO).combustivelGerado;
+        _enemy.Health.TakeDamage(_cardSO.dano);
+        _fuel.Value += _cardSO.combustivel;
     }
 
     private void FalhaCritica()
     {
-        if(combustivel.Value > 0)
+        if(_fuel.Value > 0)
         {
-            combustivel.Value--;
+            _fuel.Value--;
         }
     }
 }

@@ -3,9 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(CardUI))]
 public abstract class CardBase : MonoBehaviour, ICard
 {
-    [SerializeField] protected CardSO cardSO;
-    public CardSO GetCardSO => cardSO;
-    [SerializeField] protected SOInt combustivel;
+    [SerializeField] protected CardSO _cardSO;
+    public CardSO GetCardSO => _cardSO;
+    [SerializeField] protected SOInt _fuel;
     protected Character _player;
     protected Character _enemy;
     public static System.Action<CardBase> OnCardUsed;

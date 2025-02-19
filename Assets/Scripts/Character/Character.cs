@@ -1,10 +1,12 @@
 using UnityEngine;
 
-[RequireComponent(typeof(HealthBase))]
+[RequireComponent(typeof(HealthBase), typeof(DamageOverTime))]
 public class Character : MonoBehaviour
 {
     [SerializeField] private HealthBase _health;
     public HealthBase Health => _health;
+    [SerializeField] private DamageOverTime _damageOverTime;
+    public DamageOverTime DmgOverTime => _damageOverTime;
     private int _advantage = 0;
     public int Advantage => _advantage;
     private int _stun = 0;
@@ -18,10 +20,15 @@ public class Character : MonoBehaviour
         {
             _health = GetComponent<HealthBase>();
         }
+        if(_damageOverTime == null)
+        {
+            _damageOverTime = GetComponent<DamageOverTime>();
+        }
     }
 
     public void StartTurn()
     {
+        LoseStun();
         if(_stun > 0)
         {
             EndTurn();
@@ -30,7 +37,7 @@ public class Character : MonoBehaviour
 
     public void EndTurn()
     {
-        _advantage--;
+        LoseAdvantage();
         OnTurnEnd?.Invoke(this);
     }
 
@@ -42,8 +49,28 @@ public class Character : MonoBehaviour
         }
     }
 
+    private void LoseStun()
+    {
+        if(_stun > 0)
+        {
+            _stun--;
+        }
+    }
+
     public void GiveAdvantage(int bonus)
     {
         _advantage += bonus;
+    }
+
+    private void LoseAdvantage()
+    {
+        if(_advantage > 0)
+        {
+            _advantage--;
+        }
+        else if(_advantage < 0)
+        {
+            _advantage++;
+        }
     }
 }

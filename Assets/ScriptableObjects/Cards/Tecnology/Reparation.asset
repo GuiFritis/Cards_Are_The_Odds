@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 471e42d74e93dd3499e77e73ebbf1a0a, type: 3}
-  m_Name: HiddenBlade
+  m_Script: {fileID: 11500000, guid: ad481ad918608874eb82f55041a3f4c0, type: 3}
+  m_Name: Reparation
   m_EditorClassIdentifier: 
-  nome: Hidden Blade
-  descricao: Performs a rapid slash with a blade kept hidden.
-  dano: 20
-  falha: 4
-  sucesso: 13
+  nome: Reparation
+  descricao: Repairs yourself to survive longer.
+  cardType: 2
+  dano: 25
+  combustivel: 5
+  falha: 2
+  sucesso: 12
   cardPFB: {fileID: 0}
-  combustivelGerado: 2

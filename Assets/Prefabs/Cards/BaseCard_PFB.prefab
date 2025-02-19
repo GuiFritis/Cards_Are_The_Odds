@@ -233,7 +233,7 @@ MonoBehaviour:
   m_fontSizeMin: 8
   m_fontSizeMax: 10
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -439,6 +439,10 @@ MonoBehaviour:
   _transitionDuration: 0.4
   _targetPositionY: 40
   _scaleChange: 1.3
+  _cardName: {fileID: 8741872532395410265}
+  _cardDescription: {fileID: 2263761316416782735}
+  _successValue: {fileID: 6621809430056603866}
+  _failureValue: {fileID: 4330680628629054173}
 --- !u!1 &4573145115085607895
 GameObject:
   m_ObjectHideFlags: 0
