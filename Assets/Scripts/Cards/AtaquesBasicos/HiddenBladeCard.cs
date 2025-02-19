@@ -1,43 +1,48 @@
+using UnityEngine;
+
 public class HiddenBladeCard : CardBase
 {
+    [SerializeField] private int _damageOverTime;
+    [SerializeField] private int _damageDuration;
 
     public override bool CanUse()
     {
         return true;
     }
 
-    public override void Use()
+    public override void Activate(int advantage = 0)
     {
-        int result = Dice.Instance.ThrowDice();
-        OnCardUsed?.Invoke();
-        if(result == 20)
+        int result = Dice.Instance.ThrowDice(advantage);
+        OnCardUsed?.Invoke(this);
+        switch (result)
         {
-            SucessoCritico();
-        }
-        else if(result >= cardSO.sucesso)
-        {
-            Sucesso();
-        }
-        else if(result < cardSO.falha)
-        {
-            FalhaCritica();
+            case 20:
+                SucessoCritico();
+                break;
+            case var _ when result >= cardSO.sucesso:
+                Sucesso();
+                break;
+            case var _ when result < cardSO.falha:
+                FalhaCritica();
+                break;
         }
     }
 
     private void SucessoCritico()
     {
-        _enemyHealth.TakeDamage(cardSO.dano * 2);
+        _enemy.Health.TakeDamage(cardSO.dano * 2);
+        _enemy.GetComponent<DamageOverTime>().AddDamageOnTurnStart(_damageOverTime, _damageDuration);
         combustivel.Value += ((CardAtaqueBasicoSO)cardSO).combustivelGerado;
     }
 
     private void Sucesso()
     {
-        _enemyHealth.TakeDamage(cardSO.dano);
+        _enemy.Health.TakeDamage(cardSO.dano);
         combustivel.Value += ((CardAtaqueBasicoSO)cardSO).combustivelGerado;
     }
 
     private void FalhaCritica()
     {
-        _playerHealth.TakeDamage(cardSO.dano/2);
+        _player.Health.TakeDamage(cardSO.dano/2);
     }
 }

@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
-using Utils;
 
 public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
@@ -23,7 +22,7 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
     {
         if(cardBase.CanUse())
         {
-            cardBase.Use();
+            cardBase.Activate();
             transform.DOKill();
             transform.DOScale(0, _transitionDuration);
             enabled = false;

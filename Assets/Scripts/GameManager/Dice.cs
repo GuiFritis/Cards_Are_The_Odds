@@ -3,9 +3,16 @@ using Utils.Singleton;
 
 public class Dice : Singleton<Dice>
 {
-    public int ThrowDice()
+    public int ThrowDice(int advantage = 0)
     {
         int dieResult = Random.Range(1, 21);
+        dieResult = Mathf.Clamp(dieResult, 1, 20);
+        dieResult = dieResult switch
+        {
+            20 => 20,
+            1 => 1,
+            _ => dieResult + advantage
+        };
         ShowNumber(dieResult);
         return dieResult;
     }

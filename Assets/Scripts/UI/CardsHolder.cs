@@ -7,6 +7,17 @@ public class CardsHolder : MonoBehaviour
 {
     [SerializeField] private List<CardUI> _cards = new();
 
+    public void DrawCard(CardUI card)
+    {
+        _cards.Add(card);
+        OrganizeCards();
+    }
+
+    public void Discard(CardUI card)
+    {
+        _cards.Remove(card);
+    }
+
     private void Start()
     {
         OrganizeCards();

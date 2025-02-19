@@ -15,14 +15,14 @@ public class IntSO_UI : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         _soInt.Value = _startValue;
         _soInt.OnValueChanged += UpdateUI;
-        UpdateUI(_soInt.Value);
+        UpdateUI(_soInt.Value, 0);
     }
 
-    private void UpdateUI(int value)
+    private void UpdateUI(int value, int change)
     {
         _label.text = value.ToString();
     }

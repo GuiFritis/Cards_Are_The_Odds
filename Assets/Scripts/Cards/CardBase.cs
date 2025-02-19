@@ -6,22 +6,21 @@ public abstract class CardBase : MonoBehaviour, ICard
     [SerializeField] protected CardSO cardSO;
     public CardSO GetCardSO => cardSO;
     [SerializeField] protected SOInt combustivel;
-    protected HealthBase _playerHealth;
-    protected HealthBase _enemyHealth;
-    public System.Action OnCardUsed;
-
+    protected Character _player;
+    protected Character _enemy;
+    public static System.Action<CardBase> OnCardUsed;
     public abstract bool CanUse();
-    public abstract void Use();
+    public abstract void Activate(int advantage = 0);
 
     private void OnEnable()
     {
-        if(_playerHealth == null)
+        if(_player == null)
         {
-            _playerHealth = GameObject.FindWithTag("Player")?.GetComponent<HealthBase>();
+            _player = GameObject.FindWithTag("Player")?.GetComponent<Character>();
         }
-        if(_enemyHealth == null)
+        if(_enemy == null)
         {
-            _enemyHealth = GameObject.FindWithTag("Enemy")?.GetComponent<HealthBase>();
+            _enemy = GameObject.FindWithTag("Enemy")?.GetComponent<Character>();
         }
     }
 }
