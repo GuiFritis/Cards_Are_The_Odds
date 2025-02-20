@@ -10,13 +10,14 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
     [SerializeField] private float _scaleChange = 1.3f; 
     private InitialPosition _initialPosition;
     private CardBase cardBase;
+    private bool _enabled = false;
     [Header("UI Texts")]
     [SerializeField] private TextMeshProUGUI _cardName;
     [SerializeField] private TextMeshProUGUI _cardDescription;
     [SerializeField] private TextMeshProUGUI _successValue;
     [SerializeField] private TextMeshProUGUI _failureValue;
 
-    void OnValidate()
+    void Awake()
     {
         if(cardBase == null)
         {
@@ -24,20 +25,33 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
         }
     }
 
-    [NaughtyAttributes.Button]
-    private void SetUpCard()
+    public void Disable()
     {
-        _cardName.text = cardBase.GetCardSO.nome;
-        _cardDescription.text = cardBase.GetCardSO.descricao;
-        _successValue.text = cardBase.GetCardSO.sucesso.ToString();
-        _failureValue.text = cardBase.GetCardSO.falha.ToString();
+        _enabled = false;
+    }
+
+    public void Enable()
+    {
+        _enabled = true;
+    }
+
+    public void SetPosition(Vector3 position, Quaternion rotation, int index)
+    {
+        transform.DOLocalMove(position, _transitionDuration).SetEase(Ease.OutSine);
+        transform.DORotate(rotation.eulerAngles, _transitionDuration).SetEase(Ease.OutSine);
+        transform.DOScale(1, _transitionDuration).SetEase(Ease.OutSine);
+        _initialPosition = new InitialPosition{
+            position = position,
+            rotation = rotation,
+            index = index
+        };
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(cardBase.CanUse())
+        if(_enabled && cardBase.CanUse())
         {
-            cardBase.Activate();
+            cardBase.Activate(GameManager.Instance.GetPlayer.Advantage);
             transform.DOKill();
             transform.DOScale(0, _transitionDuration);
             enabled = false;
@@ -62,21 +76,19 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
         transform.SetSiblingIndex(_initialPosition.index);
     }
 
-    public void SetPosition(Vector3 position, Quaternion rotation, int index)
-    {
-        transform.localPosition = position;
-        transform.rotation = rotation;
-        _initialPosition = new InitialPosition{
-            position = position,
-            rotation = rotation,
-            index = index
-        };
-    }
-
     private struct InitialPosition
     {
         public Vector3 position;
         public Quaternion rotation;
         public int index;
+    }
+
+    [NaughtyAttributes.Button]
+    private void SetUpCard()
+    {
+        _cardName.text = cardBase.GetCardSO.nome;
+        _cardDescription.text = cardBase.GetCardSO.descricao;
+        _successValue.text = cardBase.GetCardSO.sucesso.ToString();
+        _failureValue.text = cardBase.GetCardSO.falha.ToString();
     }
 }

@@ -27,7 +27,7 @@ public class SlashAction : BaseAction
     private void CriticalSuccess()
     {
         _enemyCharacter.Health.TakeDamage(_damage);
-        _enemyCharacter.DmgOverTime.AddDamageOnTurnStart(_bleedDuration, _bleedDamage);
+        _enemyCharacter.DmgOverTime.AddFireDamage(_bleedDuration, _bleedDamage);
     }
 
     private void Success()

@@ -7,9 +7,23 @@ public class CardsHolder : MonoBehaviour
 {
     [SerializeField] private List<CardUI> _cards = new();
 
+    void Awake()
+    {
+        CardBase.OnCardUsed += card => DisableCards();
+    }
+
+    private void Start()
+    {
+        OrganizeCards();
+    }
+
     public void DrawCard(CardUI card)
     {
         _cards.Add(card);
+        card.Enable();
+        card.transform.SetParent(transform);
+        card.transform.localPosition = new Vector3(0, -200);
+        card.transform.localScale = Vector3.zero;
         OrganizeCards();
     }
 
@@ -18,9 +32,20 @@ public class CardsHolder : MonoBehaviour
         _cards.Remove(card);
     }
 
-    private void Start()
+    public void DisableCards()
     {
-        OrganizeCards();
+        foreach (CardUI card in _cards)
+        {
+            card.Disable();
+        }
+    }
+
+    public void EnableCards()
+    {
+        foreach (CardUI card in _cards)
+        {
+            card.Enable();
+        }
     }
 
     [Button]

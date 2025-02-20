@@ -17,16 +17,22 @@ public class Enemy : MonoBehaviour
     {
         if(character.gameObject.Equals(gameObject))
         {
-            if(!character.IsStuned)
-            {
-                _actions[_actionIndex].Activate(character.Advantage);
-            }
-            _actionIndex++;
-            if(_actionIndex > _actions.Count)
-            {
-                _actionIndex = 0;
-            }
-            character.EndTurn();
+            StartCoroutine(Acting(character));
         }
+    }
+
+    private IEnumerator Acting(Character character)
+    {
+        yield return new WaitForSeconds(1);
+        if(!character.IsStuned)
+        {
+            _actions[_actionIndex].Activate(character.Advantage);
+        }
+        _actionIndex++;
+        if(_actionIndex >= _actions.Count)
+        {
+            _actionIndex = 0;
+        }
+        character.EndTurn();
     }
 }

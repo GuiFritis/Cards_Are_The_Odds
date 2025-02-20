@@ -32,13 +32,13 @@ public class FlamethrowerDart : CardBase
     private void SucessoCritico()
     {
         _enemy.Health.TakeDamage(_cardSO.dano);
-        _enemy.DmgOverTime.AddDamageOnTurnEnd(_burningDuration, _burningDamage + 5);
+        _enemy.DmgOverTime.AddBleedDamage(_burningDuration, _burningDamage + 5);
     }
 
     private void Sucesso()
     {
         _enemy.Health.TakeDamage(_cardSO.dano);
-        _enemy.DmgOverTime.AddDamageOnTurnEnd(_burningDuration, _burningDamage);
+        _enemy.DmgOverTime.AddBleedDamage(_burningDuration, _burningDamage);
     }
 
     private void FalhaCritica()

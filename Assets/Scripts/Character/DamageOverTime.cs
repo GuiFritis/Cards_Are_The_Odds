@@ -39,12 +39,12 @@ public class DamageOverTime : MonoBehaviour
         }
     }
 
-    public void AddDamageOnTurnStart(int duration, int damage)
+    public void AddFireDamage(int duration, int damage)
     {
         _damageOnTurnStart.Add(new DamageTurns(_currentTurn, duration, damage));
     }
 
-    public void AddDamageOnTurnEnd(int duration, int damage)
+    public void AddBleedDamage(int duration, int damage)
     {
         _damageOnTurnEnd.Add(new DamageTurns(_currentTurn, duration, damage));
     }

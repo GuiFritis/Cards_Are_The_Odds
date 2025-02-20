@@ -11,8 +11,11 @@ public class Character : MonoBehaviour
     public int Advantage => _advantage;
     private int _stun = 0;
     public bool IsStuned => _stun > 0;
+    private bool _onTurn = false;
     public static System.Action<Character> OnTurnStart;
     public static System.Action<Character> OnTurnEnd;
+    public System.Action<int> OnStun;
+    public System.Action<int> OnAdvantage;
 
     void OnValidate()
     {
@@ -28,6 +31,8 @@ public class Character : MonoBehaviour
 
     public void StartTurn()
     {
+        OnTurnStart?.Invoke(this);
+        _onTurn = true;
         LoseStun();
         if(_stun > 0)
         {
@@ -37,6 +42,7 @@ public class Character : MonoBehaviour
 
     public void EndTurn()
     {
+        _onTurn = false;
         LoseAdvantage();
         OnTurnEnd?.Invoke(this);
     }
@@ -46,6 +52,7 @@ public class Character : MonoBehaviour
         if(_stun == 0)
         {
             _stun = 2;
+            OnStun?.Invoke(_stun);
         }
     }
 
@@ -54,12 +61,18 @@ public class Character : MonoBehaviour
         if(_stun > 0)
         {
             _stun--;
+            OnStun?.Invoke(_stun);
         }
     }
 
     public void GiveAdvantage(int bonus)
     {
+        if(_onTurn)
+        {
+            bonus++;
+        }
         _advantage += bonus;
+        OnAdvantage?.Invoke(_advantage);
     }
 
     private void LoseAdvantage()
@@ -72,5 +85,6 @@ public class Character : MonoBehaviour
         {
             _advantage++;
         }
+        OnAdvantage?.Invoke(_advantage);
     }
 }

@@ -10,4 +10,10 @@ public class BaseAction : MonoBehaviour, IAction
     public System.Action<BaseAction> OnActionUsed;
 
     public virtual void Activate(int advantage = 0){}
+
+    void Start()
+    {
+        _thisCharacter = GameManager.Instance.GetEnemy;
+        _enemyCharacter = GameManager.Instance.GetPlayer;
+    }
 }

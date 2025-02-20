@@ -1,19 +1,27 @@
 using UnityEngine;
+using Utils.Singleton;
 using Utils.StateMachine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
     [SerializeField] private Character _player;
-    private Character _enemy;
+    public Character GetPlayer => _player;
+    [SerializeField] private Character _enemy;
+    public Character GetEnemy => _enemy;
     private StateMachineBase<GameStates> _stm;
     public static System.Action OnEnterPlayerTurn;
     public static System.Action OnExitPlayerTurn;
 
-    void Awake()
+    protected override void Awake()
     {
-        InitStateMachine();   
+        base.Awake();
         Character.OnTurnEnd += TurnShift;
         _player.Health.OnDeath += GameOver;
+    }
+
+    void Start()
+    {        
+        InitStateMachine();   
     }
 
     private void InitStateMachine()
