@@ -98,12 +98,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4330680628629054173, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_text
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6621809430056603866, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_text
-      value: 13
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7862162078088534042, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: cardBase
+      value: 
+      objectReference: {fileID: 7747157122626781559}
     - target: {fileID: 8741872532395410265, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_text
       value: Stunning Dart

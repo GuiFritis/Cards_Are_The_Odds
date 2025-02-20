@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class StunningDart : CardBase
 {
     public override bool CanUse()

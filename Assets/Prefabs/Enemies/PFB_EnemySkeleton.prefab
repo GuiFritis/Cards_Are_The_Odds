@@ -600,6 +600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df5bedc3e22ef9640b541e60aa2d96b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _actionName: Slash
   _success: 10
   _failure: 2
   _damage: 10
@@ -617,6 +618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac46ab531fffa5e429340c728ec6a095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _actionName: Tie Up
   _success: 15
   _failure: 5
   _damage: 10
@@ -632,6 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9be289685dc8a43973208ca2b4baf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _actionName: Pistol Shot
   _success: 13
   _failure: 4
   _damage: 15

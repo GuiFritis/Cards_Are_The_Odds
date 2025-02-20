@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Utils.Singleton;
 using Utils.StateMachine;
@@ -8,15 +9,19 @@ public class GameManager : Singleton<GameManager>
     public Character GetPlayer => _player;
     [SerializeField] private Character _enemy;
     public Character GetEnemy => _enemy;
+    [SerializeField] private List<Enemy> _enemiesList = new();
+    private int _enemyIndex = 0;
     private StateMachineBase<GameStates> _stm;
     public static System.Action OnEnterPlayerTurn;
     public static System.Action OnExitPlayerTurn;
+    public static System.Action<Character> OnEnemySpawned;
 
     protected override void Awake()
     {
         base.Awake();
         Character.OnTurnEnd += TurnShift;
         _player.Health.OnDeath += GameOver;
+        _enemy.Health.OnDeath += NextEnemy;
     }
 
     void Start()
@@ -62,6 +67,25 @@ public class GameManager : Singleton<GameManager>
     public void EnemyTurn()
     {
         _enemy.StartTurn();
+    }
+
+    private void NextEnemy(HealthBase hp)
+    {
+        _enemyIndex++;
+        if(_enemyIndex >= _enemiesList.Count)
+        {
+            _stm.SwitchState(GameStates.WIN);
+        }
+        else
+        {
+            SpawnEnemy();
+        }
+    }
+
+    private void SpawnEnemy()
+    {
+        _enemy = _enemiesList[_enemyIndex].GetComponent<Character>();
+        OnEnemySpawned?.Invoke(_enemy);
     }
 
     private void GameOver(HealthBase hp)

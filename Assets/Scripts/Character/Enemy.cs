@@ -6,11 +6,16 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private List<BaseAction> _actions = new();
+    [SerializeField] private SpriteRenderer _enemySprite;
+    [SerializeField] private ParticleSystem _blowVFX;
     private int _actionIndex;
+    private HealthBase _health;
 
-    void Start()
+    void Awake()
     {
         Character.OnTurnStart += Act;
+        _health = GetComponent<HealthBase>();
+        _health.OnDamage += PlayBlowVFX;
     }
 
     private void Act(Character character)
@@ -34,5 +39,13 @@ public class Enemy : MonoBehaviour
             _actionIndex = 0;
         }
         character.EndTurn();
+    }
+
+    private void PlayBlowVFX(HealthBase hp, int damage)
+    {
+        if(_blowVFX != null)
+        {
+            _blowVFX.Play();
+        }
     }
 }

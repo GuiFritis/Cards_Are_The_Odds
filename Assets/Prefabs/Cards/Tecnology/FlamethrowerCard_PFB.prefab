@@ -104,6 +104,10 @@ PrefabInstance:
       propertyPath: m_text
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 7862162078088534042, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: cardBase
+      value: 
+      objectReference: {fileID: 3416934022375709645}
     - target: {fileID: 8741872532395410265, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_text
       value: Flamethrower

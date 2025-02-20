@@ -20,5 +20,5 @@ MonoBehaviour:
   dano: 3
   combustivel: 1
   falha: 3
-  sucesso: 12
+  sucesso: 10
   cardPFB: {fileID: 3932712871042572770, guid: d7f87b6037095d7468a06e5cf7cbabcd, type: 3}

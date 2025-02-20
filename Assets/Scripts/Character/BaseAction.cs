@@ -4,6 +4,7 @@ public class BaseAction : MonoBehaviour, IAction
 {
     protected Character _thisCharacter;
     protected Character _enemyCharacter;
+    [SerializeField] protected string _actionName;
     [SerializeField] protected int _success;
     [SerializeField] protected int _failure;
     [SerializeField] protected int _damage;

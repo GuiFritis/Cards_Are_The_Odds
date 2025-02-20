@@ -23,7 +23,7 @@ public class OnDamageDisplayText : MonoBehaviour
         _camera = Camera.main;
     }
 
-    private void PopText(HealthBase hp, float damage)
+    private void PopText(HealthBase hp, int damage)
     {
         if(DamageText_Pooling.Instance != null)
         {

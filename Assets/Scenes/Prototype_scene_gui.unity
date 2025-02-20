@@ -715,6 +715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 1523474866}
   _enemy: {fileID: 415886963}
+  _enemiesList: []
 --- !u!4 &1651345494
 Transform:
   m_ObjectHideFlags: 0
@@ -1023,6 +1024,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1679691264}
     m_Modifications:
+    - target: {fileID: 314139567974673992, guid: 5e5b0647fe1a8774594dc437bfa52a4e, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1160877981344797400, guid: 5e5b0647fe1a8774594dc437bfa52a4e, type: 3}
       propertyPath: _cardHolder
       value: 

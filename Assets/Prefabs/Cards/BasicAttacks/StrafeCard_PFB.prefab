@@ -90,7 +90,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2263761316416782735, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_text
-      value: A rapid barrage of shots to the enemy,
+      value: 'A rapid barrage of shots to the enemy.
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 3932712871042572770, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_Name
@@ -102,8 +104,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6621809430056603866, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_text
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7862162078088534042, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: cardBase
+      value: 
+      objectReference: {fileID: 7444563206906808037}
     - target: {fileID: 8741872532395410265, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_text
       value: Strafe

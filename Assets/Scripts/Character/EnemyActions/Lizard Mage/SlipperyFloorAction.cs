@@ -1,11 +1,5 @@
-using UnityEngine;
-
-public class SlashAction : BaseAction
-{
-    [SerializeField] private int _bleedDamage;
-    [SerializeField] private int _bleedDuration;
-    
-
+public class SlipperyFloorAction : BaseAction
+{   
     public override void Activate(int advantage = 0)
     {
         int result = Dice.Instance.ThrowDice(advantage);
@@ -26,17 +20,17 @@ public class SlashAction : BaseAction
 
     private void CriticalSuccess()
     {
-        _enemyCharacter.Health.TakeDamage(_damage);
-        _enemyCharacter.DmgOverTime.AddFireDamage(_bleedDuration, _bleedDamage);
+        _enemyCharacter.Stun();
+        Success();
     }
 
     private void Success()
     {
-        _enemyCharacter.Health.TakeDamage(_damage);
+        _enemyCharacter.GiveAdvantage(-2);
     }
 
     private void CriticalFailure()
     {
-        _thisCharacter.Health.TakeDamage(_damage/2);
+        _thisCharacter.GiveAdvantage(-1);
     }
 }

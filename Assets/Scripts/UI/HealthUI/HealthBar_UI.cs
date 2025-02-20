@@ -26,7 +26,7 @@ public class HealthBar_UI : MonoBehaviour, IPoolItem
         _health = null;
     }
 
-    private void OnDamageTaken(HealthBase hp, float damage)
+    private void OnDamageTaken(HealthBase hp, int damage)
     {
         gameObject.SetActive(true);
         UpdateBar();

@@ -24,10 +24,10 @@ public class HealthBar : MonoBehaviour
     private void SetUpHealthBar()
     {
         _imageHealthBar.DOKill();
-        _imageHealthBar.DOFillAmount(_health.CurrentHealth/_health.baseHealth, .2f);
+        _imageHealthBar.DOFillAmount(1f * _health.CurrentHealth/_health.baseHealth, .2f);
     }
 
-    private void OnDamage(HealthBase hp, float damage)
+    private void OnDamage(HealthBase hp, int damage)
     {
         SetUpHealthBar();
     }

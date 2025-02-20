@@ -5,12 +5,12 @@ using UnityEngine;
 public class HealthBase : MonoBehaviour
 {
     public Action<HealthBase> OnDeath;
-    public Action<HealthBase, float> OnDamage;
+    public Action<HealthBase, int> OnDamage;
     public bool destroyOnDeath = false;
-    public float baseHealth = 10f;
+    public int baseHealth = 10;
     [SerializeField]
-    private float _curHealth;
-    public float CurrentHealth {get => _curHealth;}
+    private int _curHealth;
+    public int CurrentHealth {get => _curHealth;}
     private bool dead = false;
 
     private void Awake()
@@ -23,7 +23,7 @@ public class HealthBase : MonoBehaviour
         ResetLife(baseHealth);
     }
 
-    public void ResetLife(float life)
+    public void ResetLife(int life)
     {
         _curHealth = life;
         dead = false;
@@ -40,7 +40,7 @@ public class HealthBase : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         _curHealth -= damage;
         OnDamage?.Invoke(this, damage);

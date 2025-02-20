@@ -31,7 +31,7 @@ public class HiddenBladeCard : CardBase
     private void SucessoCritico()
     {
         _enemy.Health.TakeDamage(_cardSO.dano);
-        _enemy.DmgOverTime.AddFireDamage(_bleedDuration, _bleedDamage);
+        _enemy.DmgOverTime.AddBurnDamage(_bleedDuration, _bleedDamage);
         _fuel.Value += _cardSO.combustivel;
     }
 

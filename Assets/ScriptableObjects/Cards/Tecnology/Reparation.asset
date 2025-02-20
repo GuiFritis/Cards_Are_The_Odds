@@ -18,5 +18,5 @@ MonoBehaviour:
   dano: 25
   combustivel: 5
   falha: 2
-  sucesso: 12
+  sucesso: 10
   cardPFB: {fileID: 0}

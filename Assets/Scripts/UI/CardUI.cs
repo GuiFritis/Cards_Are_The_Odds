@@ -8,14 +8,22 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
     [SerializeField] private float _transitionDuration = .4f;
     [SerializeField] private float _targetPositionY = 80f;
     [SerializeField] private float _scaleChange = 1.3f; 
+    [SerializeField] private CardBase cardBase;
     private InitialPosition _initialPosition;
-    private CardBase cardBase;
     private bool _enabled = false;
     [Header("UI Texts")]
     [SerializeField] private TextMeshProUGUI _cardName;
     [SerializeField] private TextMeshProUGUI _cardDescription;
     [SerializeField] private TextMeshProUGUI _successValue;
     [SerializeField] private TextMeshProUGUI _failureValue;
+
+    void OnValidate()
+    {
+        if(cardBase == null)
+        {
+            cardBase = GetComponent<CardBase>();
+        }
+    }
 
     void Awake()
     {
