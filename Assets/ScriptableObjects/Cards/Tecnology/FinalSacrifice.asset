@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FinalSacrifice
   m_EditorClassIdentifier: 
   nome: "Sacrif\xEDcio Final"
-  descricao: Explode your core, dealing damage to yourself in the process and bursting
-    all enemies in the radius.
+  descricao: Explode your core, dealing <b>damage to yourself</b> in the process
+    and bursting <style="damage">500</style> damage on the enemy.
   cardType: 2
   dano: 500
-  combustivel: 10
+  combustivel: 9
   falha: 7
   sucesso: 15
-  cardPFB: {fileID: 0}
+  cardPFB: {fileID: 652619298380499902, guid: d3cfd8cf2ad0a794190d8b02b1db300d, type: 3}

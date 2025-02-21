@@ -2,7 +2,7 @@ public class EnergySphereCard : CardBase
 {
     public override bool CanUse()
     {
-        return _fuel.Value > _cardSO.combustivel;
+        return _fuel.Value >= _cardSO.combustivel;
     }
 
     public override void Activate(int advantage = 0)

@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Flamethrower
   m_EditorClassIdentifier: 
   nome: Flamethrower
-  descricao: A burst of flames dealing heavy damage and burning enemies.
+  descricao: 'Burst heavy flames to the enemy dealing <style="damage">16</style>
+    damage and making them <color=orange>burn</color> 7 for 4 turns. '
   cardType: 2
   dano: 16
-  combustivel: 8
+  combustivel: 5
   falha: 5
   sucesso: 13
-  cardPFB: {fileID: 0}
+  cardPFB: {fileID: 652619298380499902, guid: 95a1adc1d052b964ea90f79be39a29b6, type: 3}

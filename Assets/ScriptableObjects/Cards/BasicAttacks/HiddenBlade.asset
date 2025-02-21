@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: HiddenBlade
   m_EditorClassIdentifier: 
   nome: Hidden Blade
-  descricao: Draws out a blade kept hidden to surprise the enemy with a powerful
-    slash.
+  descricao: Draws out a blade to surprise the enemy with a cutting edge dealing
+    <style="damage">20</style> damage and making the enemy <color=red>bleed</color>
+    4 for 5 turns on  a <style="success">critical success</style>.
   cardType: 1
   dano: 20
   combustivel: 2
   falha: 4
   sucesso: 11
-  cardPFB: {fileID: 3932712871042572770, guid: d7f87b6037095d7468a06e5cf7cbabcd, type: 3}
+  cardPFB: {fileID: 6698998176713893393, guid: 8ab39efd0678ae8489ccdfe610c65ddd, type: 3}

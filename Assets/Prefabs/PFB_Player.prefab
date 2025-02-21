@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyOnDeath: 0
-  baseHealth: 100
+  baseHealth: 200
   _curHealth: 0
 --- !u!114 &3105520121814276381
 MonoBehaviour:

@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: BionicKick
   m_EditorClassIdentifier: 
   nome: Bionic Kick
-  descricao: With thrusts in the feet performs a powerful kick to the enemy.
+  descricao: Thrust your feet to hit the enemy, dealing <style="damage">14</style>
+    damage and <color=yellow>stunning</color> them on a <style="success">critical
+    success</style>.
   cardType: 1
   dano: 14
   combustivel: 2
   falha: 3
   sucesso: 9
-  cardPFB: {fileID: 3932712871042572770, guid: d7f87b6037095d7468a06e5cf7cbabcd, type: 3}
+  cardPFB: {fileID: 6698998176713893393, guid: 8971cf003d0f52440a3bf346ef02cbb3, type: 3}

@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: EnergySphere
   m_EditorClassIdentifier: 
   nome: Energy Sphere
-  descricao: Charge an eletrical sphere to lauch it at the enemy dealing heavy damage.
+  descricao: Charge up an eletrical sphere that deals up to <style="damage">25</style>
+    damage depending on the dice result. A full charged sphere might <color=yellow>stun</color>
+    the enemy.
   cardType: 2
   dano: 15
-  combustivel: 6
+  combustivel: 3
   falha: 4
   sucesso: 10
-  cardPFB: {fileID: 0}
+  cardPFB: {fileID: 652619298380499902, guid: 89ac7613a0264f544b162d9d5ac3239c, type: 3}

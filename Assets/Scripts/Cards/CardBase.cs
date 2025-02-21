@@ -20,6 +20,7 @@ public abstract class CardBase : MonoBehaviour, ICard
         {
             _cardUI = GetComponent<CardUI>();
         }
+        GameManager.OnEnemySpawned += SetEnemy;
     }
 
     void Start()
@@ -34,5 +35,10 @@ public abstract class CardBase : MonoBehaviour, ICard
     {
         _player = GameManager.Instance.GetPlayer;
         _enemy = GameManager.Instance.GetEnemy;
+    }
+
+    private void SetEnemy(Character character)
+    {
+        _enemy = character;
     }
 }

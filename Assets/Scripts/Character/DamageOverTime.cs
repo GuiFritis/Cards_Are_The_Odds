@@ -13,6 +13,12 @@ public class DamageOverTime : MonoBehaviour
         Character.OnTurnEnd += TurnEnd;
     }
 
+    public void Clear()
+    {
+        _damageOnTurnStart.Clear();
+        _damageOnTurnEnd.Clear();
+    }
+
     private void TurnStart(Character character)
     {
         if(character.gameObject.Equals(gameObject))

@@ -6,7 +6,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private List<BaseAction> _actions = new();
-    [SerializeField] private SpriteRenderer _enemySprite;
+    [SerializeField] private Sprite _enemySprite;
+    public Sprite EnemySprite => _enemySprite;
     [SerializeField] private ParticleSystem _blowVFX;
     private int _actionIndex;
     private HealthBase _health;

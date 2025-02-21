@@ -75,4 +75,10 @@ public class GameStateLose : GameState
     {
         _gameManager = gameManager;
     }
+
+    public override void OnStateEnter(params object[] objs)
+    {
+        base.OnStateEnter(objs);
+        _gameManager.LoseGame();
+    }
 }

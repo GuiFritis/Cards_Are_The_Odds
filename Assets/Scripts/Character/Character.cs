@@ -40,6 +40,15 @@ public class Character : MonoBehaviour
         }
     }
 
+    public void Cleanse()
+    {
+        _stun = 0;
+        OnStun(_stun);
+        _advantage = 0;
+        OnAdvantage(_advantage);
+        _damageOverTime.Clear();
+    }
+
     public void EndTurn()
     {
         _onTurn = false;

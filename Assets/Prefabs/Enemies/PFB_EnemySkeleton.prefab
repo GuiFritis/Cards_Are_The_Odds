@@ -588,6 +588,8 @@ MonoBehaviour:
   - {fileID: 6985920982899370405}
   - {fileID: 7468892793721827764}
   - {fileID: 6985920982899370405}
+  _enemySprite: {fileID: 0}
+  _blowVFX: {fileID: 0}
 --- !u!114 &7468892793721827764
 MonoBehaviour:
   m_ObjectHideFlags: 0

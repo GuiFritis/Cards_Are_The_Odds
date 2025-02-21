@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: PreciseShot
   m_EditorClassIdentifier: 
   nome: Precise Shot
-  descricao: Shots a destructive blast from you arm cannon, destroying everything
-    on its  path.
+  descricao: Shots a destructive blast from you arm cannon dealing <style="damage">28</style>
+    damage.
   cardType: 1
   dano: 14
   combustivel: 3
   falha: 3
   sucesso: 9
-  cardPFB: {fileID: 3932712871042572770, guid: d7f87b6037095d7468a06e5cf7cbabcd, type: 3}
+  cardPFB: {fileID: 6698998176713893393, guid: fe20cba01152c64408964c1e3ede2842, type: 3}

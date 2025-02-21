@@ -16,7 +16,6 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
     [SerializeField] private TextMeshProUGUI _cardDescription;
     [SerializeField] private TextMeshProUGUI _successValue;
     [SerializeField] private TextMeshProUGUI _failureValue;
-
     void OnValidate()
     {
         if(cardBase == null)

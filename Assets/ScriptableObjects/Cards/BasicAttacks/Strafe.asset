@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Strafe
   m_EditorClassIdentifier: 
   nome: Strafe
-  descricao: 'A rapid barrage of shots to the enemy.
+  descricao: 'A rapid burst of <b>3</b> shots to the enemy, each dealing <style="damage">3</style>
+    damage and recovering <style="damage">fuel</style>.
 
 '
   cardType: 1
@@ -21,4 +22,4 @@ MonoBehaviour:
   combustivel: 1
   falha: 3
   sucesso: 10
-  cardPFB: {fileID: 3932712871042572770, guid: d7f87b6037095d7468a06e5cf7cbabcd, type: 3}
+  cardPFB: {fileID: 6698998176713893393, guid: c52aafb1ccc452144ad6c6ff89f01d4a, type: 3}

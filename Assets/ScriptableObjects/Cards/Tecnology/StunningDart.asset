@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: StunningDart
   m_EditorClassIdentifier: 
   nome: Stunning Dart
-  descricao: Quickly shoots a dart to stun the enemy.
+  descricao: Quickly shoots an eletrical dart on the enemy, dealing <style="damage">4</style>
+    damage and <color=yellow>stunning</color> them.
   cardType: 2
   dano: 4
-  combustivel: 4
+  combustivel: 2
   falha: 3
-  sucesso: 10
-  cardPFB: {fileID: 0}
+  sucesso: 9
+  cardPFB: {fileID: 652619298380499902, guid: 9a683bec0a8376e41a841ceed911e5e0, type: 3}

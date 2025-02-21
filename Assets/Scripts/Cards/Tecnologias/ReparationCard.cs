@@ -4,7 +4,7 @@ public class ReparationCard : CardBase
 {
     public override bool CanUse()
     {
-        return _fuel.Value > _cardSO.combustivel;
+        return _fuel.Value >= _cardSO.combustivel;
     }
 
     public override void Activate(int advantage = 0)
@@ -28,7 +28,8 @@ public class ReparationCard : CardBase
 
     private void SucessoCritico()
     {
-        _player.Health.TakeDamage(_cardSO.dano - 10);
+        Sucesso();
+        _player.Cleanse();
         _player.GiveAdvantage(1);
     }
 

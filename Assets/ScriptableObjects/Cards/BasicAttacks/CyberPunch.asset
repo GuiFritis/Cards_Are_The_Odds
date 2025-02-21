@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: CyberPunch
   m_EditorClassIdentifier: 
   nome: Cyber Punch
-  descricao: Performs a powerful punch on the enemy.
+  descricao: Make a powerful strike with your punch dealing <style="damage">10</style>
+    damage.
   cardType: 1
   dano: 10
-  combustivel: 1
+  combustivel: 2
   falha: 2
   sucesso: 8
   cardPFB: {fileID: 6698998176713893393, guid: 391bc2d3025109f4982038edc4a86f45, type: 3}

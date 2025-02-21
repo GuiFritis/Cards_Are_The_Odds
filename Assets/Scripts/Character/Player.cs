@@ -63,6 +63,11 @@ public class Player : MonoBehaviour
             if(!bothTypes)
             {
                 card = _cards.Find(i => !i.GetCardSO.cardType.Equals(cardType));
+                if(card == null)
+                {
+                    Shuffle();
+                    card = _cards.Find(i => !i.GetCardSO.cardType.Equals(cardType));
+                }
             }
         }
 

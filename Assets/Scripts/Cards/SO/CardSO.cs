@@ -4,7 +4,7 @@ using UnityEngine;
 public class CardSO : ScriptableObject
 {
     public string nome;
-    [Multiline]
+    [TextArea]
     public string descricao;
     public CardType cardType;
     public int dano;

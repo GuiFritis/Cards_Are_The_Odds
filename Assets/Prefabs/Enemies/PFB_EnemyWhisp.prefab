@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyOnDeath: 0
-  baseHealth: 100
+  baseHealth: 60
   _curHealth: 0
 --- !u!114 &7780571896341268546
 MonoBehaviour:
@@ -589,6 +589,8 @@ MonoBehaviour:
   - {fileID: -3798320575756449990}
   - {fileID: -2992994714637165959}
   - {fileID: 7596218283144629926}
+  _enemySprite: {fileID: 0}
+  _blowVFX: {fileID: 0}
 --- !u!114 &-3798320575756449990
 MonoBehaviour:
   m_ObjectHideFlags: 0
