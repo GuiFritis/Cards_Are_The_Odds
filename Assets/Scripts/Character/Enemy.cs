@@ -29,10 +29,10 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator Acting(Character character)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(.5f);
         if(!character.IsStuned)
         {
-            _actions[_actionIndex].Activate(character.Advantage);
+            yield return StartCoroutine(_actions[_actionIndex].Activate(character.Advantage));
         }
         _actionIndex++;
         if(_actionIndex >= _actions.Count)

@@ -1,4 +1,6 @@
+using System.Collections;
+
 public interface IAction
 {
-    void Activate(int advantage = 0);
+    IEnumerator Activate(int advantage = 0);
 }

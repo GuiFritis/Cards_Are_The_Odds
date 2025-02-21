@@ -9,6 +9,8 @@ public class CardSO : ScriptableObject
     public CardType cardType;
     public int dano;
     public int combustivel;
+    [Tooltip("The time the cards takes to finish it's action")]
+    public float duration = 1f;
     [Range(2, 15)]
     public int falha;
     [Range(6, 19)]

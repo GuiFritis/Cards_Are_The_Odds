@@ -21,12 +21,12 @@ public class DamageText_UI : MonoBehaviour, IPoolItem
         gameObject.SetActive(false);
     }
 
-    public void Play()
+    public void Play(float speed = 1f)
     {
-        _textMesh.DOColor(Color.clear, .2f).SetEase(Ease.OutCirc).From(true);
-        transform.DOMoveY(30f, .5f).SetEase(Ease.OutCirc).SetRelative(true);
-        transform.DOMoveX(Random.Range(-1, 2) * 10f, .5f).SetEase(Ease.OutCirc).SetRelative(true);
-        _textMesh.DOColor(Color.clear, .35f).SetDelay(.25f).SetEase(Ease.InQuad).OnComplete(
+        _textMesh.DOColor(Color.clear, speed * .2f).SetEase(Ease.OutCirc).From(true);
+        transform.DOMoveY(30f, speed * .5f).SetEase(Ease.OutCirc).SetRelative(true);
+        transform.DOMoveX(Random.Range(-1, 2) * 10f, speed * .5f).SetEase(Ease.OutCirc).SetRelative(true);
+        _textMesh.DOColor(Color.clear, speed * .35f).SetDelay(speed * .25f).SetEase(Ease.InQuad).OnComplete(
             () => _pool.Release(this)
         );
     }

@@ -607,6 +607,7 @@ MonoBehaviour:
   _success: 10
   _failure: 3
   _damage: 5
+  _duration: 0
   _missilesOnSuccess: 3
   _missilesOnCritSuccess: 5
   _missilesOnCritFailure: 1
@@ -626,6 +627,7 @@ MonoBehaviour:
   _success: 14
   _failure: 4
   _damage: -15
+  _duration: 0
   _heals: 2
 --- !u!114 &7596218283144629926
 MonoBehaviour:
@@ -643,6 +645,7 @@ MonoBehaviour:
   _success: 13
   _failure: 4
   _damage: 8
+  _duration: 0
 --- !u!114 &8697475408528426126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -727,7 +730,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Skeleton
+  m_text: Whisp
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

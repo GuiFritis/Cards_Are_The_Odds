@@ -9,7 +9,7 @@ public class CardsHolder : MonoBehaviour
 
     void Awake()
     {
-        CardBase.OnCardUsed += card => DisableCards();
+        CardBase.OnCardActivated += card => DisableCards();
     }
 
     private void Start()

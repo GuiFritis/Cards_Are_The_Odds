@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(CardUI))]
@@ -10,9 +11,13 @@ public abstract class CardBase : MonoBehaviour, ICard
     protected Character _enemy;
     private CardUI _cardUI;
     public CardUI GetCardUI => _cardUI;
-    public static System.Action<CardBase> OnCardUsed;
+    public static System.Action<CardBase> OnCardActivated;
+    public static System.Action<CardBase> OnCardFinished;
     public abstract bool CanUse();
-    public abstract void Activate(int advantage = 0);
+    protected abstract IEnumerator CritSuccess(int result = 0);
+    protected abstract IEnumerator Success(int result = 0);
+    protected abstract IEnumerator Failure(int result = 0);
+    protected abstract IEnumerator CritFailure(int result = 0);
 
     void Awake()
     {
@@ -29,6 +34,30 @@ public abstract class CardBase : MonoBehaviour, ICard
         {
             _cardUI = GetComponent<CardUI>();
         }
+    }
+
+    public IEnumerator Activate(int advantage = 0)
+    {
+        int result = 0;
+        OnCardActivated?.Invoke(this);
+        yield return StartCoroutine(Dice.Instance.ThrowDice(i => result = i, advantage, _cardSO.falha, _cardSO.sucesso));
+        switch (result)
+        {
+            case 20:
+                yield return StartCoroutine(CritSuccess());
+                break;
+            case var _ when result >= _cardSO.sucesso:
+                yield return StartCoroutine(Success());
+                break;
+            case var _ when result >= _cardSO.falha:
+                yield return StartCoroutine(Failure());
+                break;
+            case var _ when result < _cardSO.falha:
+                yield return StartCoroutine(CritFailure());
+                break;
+        }
+        yield return new WaitForSeconds(.2f);
+        OnCardFinished?.Invoke(this);
     }
 
     private void OnEnable()

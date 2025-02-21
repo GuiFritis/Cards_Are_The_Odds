@@ -1,3 +1,6 @@
+using System.Collections;
+using UnityEngine;
+
 public class EnergySphereCard : CardBase
 {
     public override bool CanUse()
@@ -5,38 +8,27 @@ public class EnergySphereCard : CardBase
         return _fuel.Value >= _cardSO.combustivel;
     }
 
-    public override void Activate(int advantage = 0)
+    protected override IEnumerator CritSuccess(int result)
     {
-        _fuel.Value -= _cardSO.combustivel;
-        int result = Dice.Instance.ThrowDice(advantage);
-        OnCardUsed?.Invoke(this);
-        switch (result)
-        {
-            case 20:
-                SucessoCritico(result);
-                break;
-            case var _ when result >= _cardSO.sucesso:
-                Sucesso(result);
-                break;
-            case var _ when result < _cardSO.falha:
-                FalhaCritica();
-                break;
-        }
-    }
-
-    private void SucessoCritico(int result)
-    {
+        yield return new WaitForSeconds(_cardSO.duration * 2);
         _enemy.Health.TakeDamage(_cardSO.dano + result - 10);
         _enemy.Stun();
     }
 
-    private void Sucesso(int result)
+    protected override IEnumerator Success(int result)
     {        
+        yield return new WaitForSeconds(_cardSO.duration * result/10);
         _enemy.Health.TakeDamage(_cardSO.dano + result - 10);
     }
 
-    private void FalhaCritica()
+    protected override IEnumerator Failure(int result = 0)
     {
+        yield return new WaitForSeconds(_cardSO.duration);
+    }
+
+    protected override IEnumerator CritFailure(int result)
+    {
+        yield return new WaitForSeconds(_cardSO.duration);
         _player.Health.TakeDamage(_cardSO.dano/2);
         _player.GiveAdvantage(-2);
     }

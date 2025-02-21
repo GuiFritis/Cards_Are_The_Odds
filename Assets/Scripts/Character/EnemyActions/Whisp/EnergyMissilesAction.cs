@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnergyMissilesAction : BaseAction
@@ -5,44 +6,35 @@ public class EnergyMissilesAction : BaseAction
     [SerializeField] private int _missilesOnSuccess;
     [SerializeField] private int _missilesOnCritSuccess;
     [SerializeField] private int _missilesOnCritFailure;
-    public override void Activate(int advantage = 0)
-    {
-        int result = Dice.Instance.ThrowDice(advantage);
-        OnActionUsed?.Invoke(this);
-        switch (result)
-        {
-            case 20:
-                CriticalSuccess();
-                break;
-            case var _ when result >= _success:
-                Success();
-                break;
-            case var _ when result < _failure:
-                CriticalFailure();
-                break;
-        }
-    }
 
-    private void CriticalSuccess()
+    protected override IEnumerator CritSuccess(int result)
     {
         for (int i = 0; i < _missilesOnCritSuccess; i++)
         {
+            yield return new WaitForSeconds(_duration);
             _enemyCharacter.Health.TakeDamage(_damage);
         }
     }
 
-    private void Success()
+    protected override IEnumerator Success(int result)
     {   
         for (int i = 0; i < _missilesOnSuccess; i++)
         {
+            yield return new WaitForSeconds(_duration);
             _enemyCharacter.Health.TakeDamage(_damage);
         }
     }
 
-    private void CriticalFailure()
+    protected override IEnumerator Failure(int result = 0)
+    {
+        yield return new WaitForSeconds(_duration * 3);
+    }
+
+    protected override IEnumerator CritFailure(int result)
     {
         for (int i = 0; i < _missilesOnSuccess; i++)
         {
+            yield return new WaitForSeconds(_duration/2);
             _thisCharacter.Health.TakeDamage(_damage);
         }
     }

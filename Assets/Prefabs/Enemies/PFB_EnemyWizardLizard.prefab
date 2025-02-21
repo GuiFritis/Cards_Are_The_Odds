@@ -629,6 +629,7 @@ MonoBehaviour:
   _success: 12
   _failure: 3
   _damage: 8
+  _duration: 0
   _burnDamage: 5
   _burnDuration: 2
 --- !u!114 &-9046588043155219685
@@ -647,6 +648,7 @@ MonoBehaviour:
   _success: 10
   _failure: 3
   _damage: 0
+  _duration: 0
 --- !u!114 &-7005025594186984896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -663,6 +665,7 @@ MonoBehaviour:
   _success: 14
   _failure: 5
   _damage: 10
+  _duration: 0
 --- !u!114 &1040636600966859606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -679,6 +682,7 @@ MonoBehaviour:
   _success: 8
   _failure: 2
   _damage: 10
+  _duration: 0
 --- !u!1 &7358129215777524087
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,7 +748,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Skeleton
+  m_text: Wizard
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

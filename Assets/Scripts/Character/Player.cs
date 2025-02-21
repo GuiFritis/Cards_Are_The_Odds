@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     {
         Character.OnTurnStart += TurnStart;
         Character.OnTurnEnd += TurnEnd;
-        CardBase.OnCardUsed += CardUsed;
+        CardBase.OnCardActivated += CardUsed;
     }
 
     void Start()

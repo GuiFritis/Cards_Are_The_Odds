@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PreciseShotCard : CardBase
@@ -7,38 +8,28 @@ public class PreciseShotCard : CardBase
         return true;
     }
 
-    public override void Activate(int advantage = 0)
+    protected override IEnumerator CritSuccess(int result)
     {
-        int result = Dice.Instance.ThrowDice(advantage);
-        OnCardUsed?.Invoke(this);
-        switch (result)
-        {
-            case 20:
-                SucessoCritico();
-                break;
-            case var _ when result >= _cardSO.sucesso:
-                Sucesso();
-                break;
-            case var _ when result < _cardSO.falha:
-                FalhaCritica();
-                break;
-        }
-    }
-
-    private void SucessoCritico()
-    {
+        yield return new WaitForSeconds(_cardSO.duration * 1.2f);
         _enemy.Health.TakeDamage(Mathf.RoundToInt(_cardSO.dano * 1.5f));
         _fuel.Value += _cardSO.combustivel;
     }
 
-    private void Sucesso()
+    protected override IEnumerator Success(int result)
     {
+        yield return new WaitForSeconds(_cardSO.duration);
         _enemy.Health.TakeDamage(_cardSO.dano);
         _fuel.Value += _cardSO.combustivel;
     }
 
-    private void FalhaCritica()
+    protected override IEnumerator Failure(int result = 0)
     {
+        yield return new WaitForSeconds(_cardSO.duration);
+    }
+
+    protected override IEnumerator CritFailure(int result)
+    {
+        yield return new WaitForSeconds(_cardSO.duration);
         _fuel.Value--;
         _enemy.GiveAdvantage(1);
     }

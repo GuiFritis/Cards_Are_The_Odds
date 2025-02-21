@@ -58,7 +58,7 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
     {
         if(_enabled && cardBase.CanUse())
         {
-            cardBase.Activate(GameManager.Instance.GetPlayer.Advantage);
+            StartCoroutine(cardBase.Activate(GameManager.Instance.GetPlayer.Advantage));
             transform.DOKill();
             transform.DOScale(0, _transitionDuration);
             enabled = false;

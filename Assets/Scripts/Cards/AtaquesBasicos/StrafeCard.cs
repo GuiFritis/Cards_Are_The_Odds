@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class StrafeCard : CardBase
@@ -11,46 +12,36 @@ public class StrafeCard : CardBase
         return true;
     }
 
-    public override void Activate(int advantage = 0)
-    {
-        int result = Dice.Instance.ThrowDice(advantage);
-        OnCardUsed?.Invoke(this);
-        switch (result)
-        {
-            case 20:
-                SucessoCritico();
-                break;
-            case var _ when result >= _cardSO.sucesso:
-                Sucesso();
-                break;
-            case var _ when result < _cardSO.falha:
-                FalhaCritica();
-                break;
-        }
-    }
-
-    private void SucessoCritico()
+    protected override IEnumerator CritSuccess(int result)
     {
         for (int i = 0; i < _criticalShots; i++)
         {
             _enemy.Health.TakeDamage(_cardSO.dano);
             _fuel.Value += _cardSO.combustivel;
+            yield return new WaitForSeconds(_cardSO.duration);
         }
     }
 
-    private void Sucesso()
+    protected override IEnumerator Success(int result)
     {
         for (int i = 0; i < _shots; i++)
         {
             _enemy.Health.TakeDamage(_cardSO.dano);
             _fuel.Value += _cardSO.combustivel;
+            yield return new WaitForSeconds(_cardSO.duration);
         }
     }
 
-    private void FalhaCritica()
+    protected override IEnumerator Failure(int result = 0)
+    {
+        yield return new WaitForSeconds(_cardSO.duration * 3);
+    }
+
+    protected override IEnumerator CritFailure(int result)
     {
         for (int i = 0; i < _selfDamageShots; i++)
         {
+            yield return new WaitForSeconds(_cardSO.duration);
             _player.Health.TakeDamage(_cardSO.dano);
         }
     }

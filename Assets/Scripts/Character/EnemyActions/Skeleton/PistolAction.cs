@@ -1,35 +1,28 @@
+using System.Collections;
+using UnityEngine;
+
 public class PistolAction : BaseAction
 {   
-    public override void Activate(int advantage = 0)
+    protected override IEnumerator CritSuccess(int result)
     {
-        int result = Dice.Instance.ThrowDice(advantage);
-        OnActionUsed?.Invoke(this);
-        switch (result)
-        {
-            case 20:
-                CriticalSuccess();
-                break;
-            case var _ when result >= _success:
-                Success();
-                break;
-            case var _ when result < _failure:
-                CriticalFailure();
-                break;
-        }
-    }
-
-    private void CriticalSuccess()
-    {
+        yield return new WaitForSeconds(_duration);
         _enemyCharacter.Health.TakeDamage(_damage * 2);
     }
 
-    private void Success()
+    protected override IEnumerator Success(int result)
     {
+        yield return new WaitForSeconds(_duration);
         _enemyCharacter.Health.TakeDamage(_damage);
     }
 
-    private void CriticalFailure()
+    protected override IEnumerator Failure(int result = 0)
     {
+        yield return new WaitForSeconds(_duration);
+    }
+
+    protected override IEnumerator CritFailure(int result)
+    {
+        yield return new WaitForSeconds(_duration * 1.2f);
         _thisCharacter.GiveAdvantage(-1);
     }
 }
