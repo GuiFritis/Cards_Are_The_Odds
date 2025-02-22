@@ -12,7 +12,7 @@ public class EnergySphereCard : CardBase
     {
         PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration);
-        _enemy.Health.TakeDamage(_cardSO.dano + result - 10);
+        _enemy.Health.TakeDamage(_cardSO.dano + result - 5);
         _enemy.Stun();
     }
 

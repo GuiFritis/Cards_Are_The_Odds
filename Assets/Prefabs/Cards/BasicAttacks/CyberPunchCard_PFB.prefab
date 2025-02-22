@@ -139,11 +139,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6568497358408407869, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -28.48706
+      value: -28.45944
       objectReference: {fileID: 0}
     - target: {fileID: 6621809430056603866, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_text
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7359801123749632409, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_Size
+      value: 0.99930894
       objectReference: {fileID: 0}
     - target: {fileID: 7359801123749632409, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_Value

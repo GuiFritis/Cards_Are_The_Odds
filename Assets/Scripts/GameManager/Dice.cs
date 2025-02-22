@@ -19,13 +19,13 @@ public class Dice : Singleton<Dice>
             _animation.Play();
         }
         int result = Random.Range(1, 21);
-        result = Mathf.Clamp(result, 1, 20);
         result = result switch
         {
             20 => 20,
             1 => 1,
             _ => result + advantage
         };
+        result = Mathf.Clamp(result, 1, 20);
         yield return StartCoroutine(ShowNumber(result, failure, success));
         returnResult?.Invoke(result);
     }
@@ -36,7 +36,6 @@ public class Dice : Singleton<Dice>
         {
             yield return new WaitForEndOfFrame();
         }
-        yield return new WaitForSeconds(1f);
         if(DamageText_Pooling.Instance != null)
         {
             DamageText_UI _damageText = DamageText_Pooling.Instance.GetPoolItem();

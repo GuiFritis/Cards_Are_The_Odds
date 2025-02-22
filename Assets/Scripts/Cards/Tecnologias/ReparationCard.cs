@@ -11,9 +11,11 @@ public class ReparationCard : CardBase
 
     protected override IEnumerator CritSuccess(int result)
     {
-        yield return StartCoroutine(Success(result));
+        PlayAudio();
+        yield return new WaitForSeconds(_cardSO.duration);
+        _player.Health.TakeDamage(_cardSO.dano - 5);
         _player.Cleanse();
-        _player.GiveAdvantage(1);
+        _player.GiveAdvantage(2);
     }
 
     protected override IEnumerator Success(int result)

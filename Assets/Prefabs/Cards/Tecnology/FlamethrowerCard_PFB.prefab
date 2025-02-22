@@ -91,7 +91,7 @@ PrefabInstance:
     - target: {fileID: 2263761316416782735, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_text
       value: 'Burst heavy flames to the enemy dealing <style="damage">16</style>
-        damage and making them <color=orange>burn</color> 7 for 4 turns. '
+        damage and making them <color=orange>burn</color> 6 for 4 turns. '
       objectReference: {fileID: 0}
     - target: {fileID: 2263761316416782735, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_fontSize
@@ -155,7 +155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6568497358408407869, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -46.54223
+      value: -46.51816
       objectReference: {fileID: 0}
     - target: {fileID: 6621809430056603866, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_text
@@ -163,11 +163,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7359801123749632409, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_Size
-      value: 0.6121227
+      value: 0.61171615
       objectReference: {fileID: 0}
     - target: {fileID: 7359801123749632409, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_Value
-      value: 1.0006715
+      value: 1.0000042
       objectReference: {fileID: 0}
     - target: {fileID: 7833612242986622909, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_AnchorMax.y

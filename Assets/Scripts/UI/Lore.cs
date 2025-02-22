@@ -8,6 +8,7 @@ public class Lore : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _textMesh;
     [SerializeField] private SOAudio _keyboardAudio;
     [SerializeField] private SOAudio _keyboardSpaceAudio;
+    private bool _type = true;
 
     public void DisplayLore()
     {
@@ -23,6 +24,11 @@ public class Lore : MonoBehaviour
             _textMesh.text += letter;
             SFX_Pool.Instance.Play(letter == ' '?_keyboardSpaceAudio:_keyboardAudio);
             yield return new WaitForSeconds(0.05f);
+            if(!_type)
+            {
+                _textMesh.text = text;
+                break;
+            }
         }
         yield return new WaitForSeconds(1f);
         float timer = 0;
@@ -33,5 +39,10 @@ public class Lore : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         SceneManager.LoadScene(1);   
+    }
+
+    public void Skip()
+    {
+        _type = false;
     }
 }

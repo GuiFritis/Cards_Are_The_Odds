@@ -14,39 +14,47 @@ public class UpdateStatusUI : MonoBehaviour
     [SerializeField] private Sprite _disadvantageIcon;
     [SerializeField] private Image _advantageImage;
 
-    void Awake()
+    void OnEnable()
     {
         _character.OnStun += UpdateStun;
-        _character.OnAdvantage += UpdateAdvantage;
+        _character.OnAdvantage += UpdateAdvantage;        
+    }
+
+    void OnDisable()
+    {
+        _character.OnStun -= UpdateStun;
+        _character.OnAdvantage -= UpdateAdvantage;        
     }
 
     private void UpdateStun(int stun)
     {
-        if(gameObject == null)
+        if(gameObject != null)
         {
-            return;
-        }
-        if(stun == 0)
-        {
-            _stunUI.SetActive(false);
-        }
-        else
-        {
-            _stunUI.SetActive(true);
+            if(stun == 0)
+            {
+                _stunUI.SetActive(false);
+            }
+            else
+            {
+                _stunUI.SetActive(true);
+            }
         }
     }
 
     private void UpdateAdvantage(int advantage)
     {
-        if(advantage == 0)
+        if(gameObject != null)
         {
-            _advantageUI.SetActive(false);
-        }
-        else
-        {
-            _advantageText.text = advantage.ToString();
-            _advantageImage.sprite = advantage > 0 ? _advantageIcon : _disadvantageIcon;
-            _advantageUI.SetActive(true);
+            if(advantage == 0)
+            {
+                _advantageUI.SetActive(false);
+            }
+            else
+            {
+                _advantageText.text = advantage.ToString();
+                _advantageImage.sprite = advantage > 0 ? _advantageIcon : _disadvantageIcon;
+                _advantageUI.SetActive(true);
+            }
         }
     }
 }

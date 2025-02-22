@@ -48,16 +48,16 @@ public abstract class CardBase : MonoBehaviour, ICard
         switch (result)
         {
             case 20:
-                yield return StartCoroutine(CritSuccess());
+                yield return StartCoroutine(CritSuccess(result));
                 break;
             case var _ when result >= _cardSO.sucesso:
-                yield return StartCoroutine(Success());
+                yield return StartCoroutine(Success(result));
                 break;
             case var _ when result >= _cardSO.falha:
-                yield return StartCoroutine(Failure());
+                yield return StartCoroutine(Failure(result));
                 break;
             case var _ when result < _cardSO.falha:
-                yield return StartCoroutine(CritFailure());
+                yield return StartCoroutine(CritFailure(result));
                 break;
         }
         yield return new WaitForSeconds(.2f);

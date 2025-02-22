@@ -26,16 +26,16 @@ public abstract class BaseAction : MonoBehaviour, IAction
         switch (result)
         {
             case 20:
-                yield return StartCoroutine(CritSuccess());
+                yield return StartCoroutine(CritSuccess(result));
                 break;
             case var _ when result >= _success:
-                yield return StartCoroutine(Success());
+                yield return StartCoroutine(Success(result));
                 break;
             case var _ when result >= _failure:
-                yield return StartCoroutine(Failure());
+                yield return StartCoroutine(Failure(result));
                 break;
             case var _ when result < _failure:
-                yield return StartCoroutine(CritFailure());
+                yield return StartCoroutine(CritFailure(result));
                 break;
         }
         yield return new WaitForSeconds(.2f);

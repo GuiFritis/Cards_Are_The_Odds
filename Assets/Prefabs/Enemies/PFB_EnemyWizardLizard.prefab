@@ -605,7 +605,7 @@ MonoBehaviour:
   - {fileID: 1040636600966859606}
   - {fileID: 3018293001393252942}
   - {fileID: -9046588043155219685}
-  _enemySprite: {fileID: 0}
+  _enemySprite: {fileID: 21300000, guid: 1e719dc0f97e1f74298c2ff91c0ead39, type: 3}
   _blowVFX: {fileID: 0}
 --- !u!114 &8697475408528426126
 MonoBehaviour:
@@ -765,7 +765,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wizard
+  m_text: Lizard Wizard
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -792,7 +792,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.35
+  m_fontSize: 18.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

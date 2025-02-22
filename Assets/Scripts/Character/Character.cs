@@ -38,10 +38,17 @@ public class Character : MonoBehaviour
     {
         LoseStun();
         OnTurnStart?.Invoke(this);
-        _onTurn = true;
-        if(_stun > 0)
+        if(_health.CurrentHealth == 0)
         {
-            EndTurn();
+            _onTurn = false;
+        }
+        else
+        {
+            _onTurn = true;
+            if(_stun > 0)
+            {
+                EndTurn();
+            }
         }
     }
 
@@ -105,6 +112,6 @@ public class Character : MonoBehaviour
     private void Death(HealthBase hp)
     {
         _stun = 2;
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

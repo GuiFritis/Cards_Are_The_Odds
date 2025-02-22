@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: CriticalSuccess
   m_EditorClassIdentifier: 
   audioClips:
-  - {fileID: 8300000, guid: 6a55b1210d28e48f9be508821dfab1d3, type: 3}
-  pitch: 0.8
+  - {fileID: 8300000, guid: 10c2cb89f89ea41c781d05ab6a18aad9, type: 3}
+  pitch: 0.9
   randomizePith: 1
   pitchRange: 0.1
-  volume: 0.8
+  volume: 0.9

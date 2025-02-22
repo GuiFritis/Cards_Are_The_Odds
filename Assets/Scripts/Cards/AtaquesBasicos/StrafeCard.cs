@@ -18,7 +18,7 @@ public class StrafeCard : CardBase
         {
             yield return new WaitForSeconds(_cardSO.duration);
             PlayAudio();
-            _enemy.Health.TakeDamage(_cardSO.dano);
+            _enemy.Health.TakeDamage(_cardSO.dano + 1);
             _fuel.Value += _cardSO.combustivel;
         }
     }

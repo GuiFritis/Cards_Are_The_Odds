@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nome: "Sacrif\xEDcio Final"
   descricao: Explode your core, dealing <b>damage to yourself</b> in the process
-    and bursting <style="damage">500</style> damage on the enemy.
+    and bursting <style="damage">50</style> damage on the enemy.
   cardType: 2
-  dano: 500
+  dano: 50
   combustivel: 9
   duration: 0.8
   falha: 7

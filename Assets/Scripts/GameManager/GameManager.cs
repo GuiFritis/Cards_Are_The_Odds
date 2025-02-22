@@ -30,6 +30,7 @@ public class GameManager : Singleton<GameManager>
 
     void Start()
     {   
+        _enemySprite.color = Color.clear;
         NextEnemy();
         InitStateMachine();   
     }
@@ -78,7 +79,7 @@ public class GameManager : Singleton<GameManager>
     {
         _enemySprite.DOColor(Color.clear, 1f).OnComplete(
             () => {
-                Destroy(_enemy.gameObject);
+                _enemy.gameObject.SetActive(false);
                 NextEnemy();
             }
         );
@@ -104,12 +105,24 @@ public class GameManager : Singleton<GameManager>
             () => {
                 _enemy = _enemiesList[_enemyIndex].GetComponent<Character>();
                 _enemy = Instantiate(_enemy, transform.parent);
+                _enemy.transform.SetSiblingIndex(transform.GetSiblingIndex()-1);
                 _enemy.Health.OnDeath += EnemyDeath;
+                _enemy.Health.OnDamage += FlashSprite;
                 OnEnemySpawned?.Invoke(_enemy);
                 _player.Cleanse();
                 _stm.SwitchState(GameStates.PLAYER_TURN);
             }
         );
+    }
+
+    private void FlashSprite(HealthBase hp, int damage)
+    {
+        if(damage > 0)
+        {
+            _enemySprite.DOKill();
+            _enemySprite.color = Color.white;
+            _enemySprite.DOColor(Color.red, .15f).SetLoops(2, LoopType.Yoyo);
+        }
     }
 
     #region WIN

@@ -16,7 +16,7 @@ MonoBehaviour:
   descricao: Shots a destructive blast from you arm cannon dealing <style="damage">28</style>
     damage.
   cardType: 1
-  dano: 14
+  dano: 22
   combustivel: 3
   duration: 0.2
   falha: 3

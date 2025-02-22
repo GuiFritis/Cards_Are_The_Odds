@@ -13,7 +13,7 @@ public class HiddenBladeCard : CardBase
         PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration);
         _enemy.Health.TakeDamage(_cardSO.dano);
-        _enemy.DmgOverTime.AddBleedDamage(3, 6);
+        _enemy.DmgOverTime.AddBleedDamage(3, 7);
         _fuel.Value += _cardSO.combustivel;
     }
 

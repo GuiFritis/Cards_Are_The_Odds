@@ -16,7 +16,7 @@ public class FlamethrowerCard : CardBase
         PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration);
         _enemy.Health.TakeDamage(_cardSO.dano);
-        _enemy.DmgOverTime.AddBurnDamage(_burningDuration, _burningDamage + 5);
+        _enemy.DmgOverTime.AddBurnDamage(_burningDuration, _burningDamage * 2);
     }
 
     protected override IEnumerator Success(int result)

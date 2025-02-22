@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Character))]
@@ -40,11 +41,16 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator Acting(Character character)
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.3f);
         if(!character.IsStuned)
         {
             ShowAction(_actions[_actionIndex].ActionName);
+            yield return new WaitForSeconds(.3f);
             yield return StartCoroutine(_actions[_actionIndex].Activate(character.Advantage));
+        }
+        else if(character.Health.CurrentHealth == 0)
+        {
+            yield break;
         }
         else
         {

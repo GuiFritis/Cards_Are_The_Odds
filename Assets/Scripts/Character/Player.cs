@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 using Utils;
 
 [RequireComponent(typeof(Character))]
@@ -8,6 +10,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private CardsHolder _cardHolder;
     [SerializeField] private List<CardBase> _cards = new();
+    [SerializeField] private Image _panel;
     private List<CardBase> _usedCards = new();
     private List<CardBase> _drawnCards = new();
 
@@ -17,6 +20,10 @@ public class Player : MonoBehaviour
         Character.OnTurnEnd += TurnEnd;
         CardBase.OnCardActivated += CardUsed;
         CardBase.OnCardFinished += EndTurn;
+        if(TryGetComponent<HealthBase>(out HealthBase health))
+        {
+            health.OnDamage += FlashPanel;
+        }
     }
 
     void Start()
@@ -126,6 +133,16 @@ public class Player : MonoBehaviour
         {
             yield return new WaitForSeconds(.2f);
             DrawCard();
+        }
+    }
+
+    private void FlashPanel(HealthBase hp, int damage)
+    {
+        if(damage > 0)
+        {
+            _panel.DOKill();
+            _panel.color = Color.clear;
+            _panel.DOColor(new Color(1, 0, 0, .6f), 0.15f).SetLoops(2, LoopType.Yoyo);
         }
     }
 }

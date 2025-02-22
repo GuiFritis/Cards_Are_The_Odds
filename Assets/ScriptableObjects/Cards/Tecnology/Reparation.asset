@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Reparation
   m_EditorClassIdentifier: 
   nome: Reparation
-  descricao: Repairs yourself recovering <style="success">25</style> health. The
+  descricao: Repairs yourself recovering <style="success">20</style> health. The
     best reparations can even <b>cleanse</b> status and damages over time.
   cardType: 2
-  dano: -25
+  dano: -20
   combustivel: 2
   duration: 1
   falha: 2

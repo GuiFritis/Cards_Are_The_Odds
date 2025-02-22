@@ -91,7 +91,7 @@ PrefabInstance:
     - target: {fileID: 2263761316416782735, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_text
       value: Explode your core, dealing <b>damage to yourself</b> in the process
-        and bursting <style="damage">500</style> damage on the enemy.
+        and bursting <style="damage">50</style> damage on the enemy.
       objectReference: {fileID: 0}
     - target: {fileID: 2263761316416782735, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_fontSize
@@ -159,7 +159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6568497358408407869, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50.63063
+      value: -50.607388
       objectReference: {fileID: 0}
     - target: {fileID: 6621809430056603866, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_text
@@ -167,11 +167,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7359801123749632409, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_Size
-      value: 0.56265604
+      value: 0.56237525
       objectReference: {fileID: 0}
     - target: {fileID: 7359801123749632409, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_Value
-      value: 1.0005298
+      value: 1.0000042
       objectReference: {fileID: 0}
     - target: {fileID: 7658951574096211244, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_SizeDelta.x

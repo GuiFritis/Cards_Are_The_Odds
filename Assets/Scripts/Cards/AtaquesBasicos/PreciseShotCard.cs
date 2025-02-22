@@ -12,7 +12,7 @@ public class PreciseShotCard : CardBase
     {
         PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration * 1.2f);
-        _enemy.Health.TakeDamage(Mathf.RoundToInt(_cardSO.dano * 1.5f));
+        _enemy.Health.TakeDamage(Mathf.RoundToInt(_cardSO.dano * 2f));
         _fuel.Value += _cardSO.combustivel;
     }
 

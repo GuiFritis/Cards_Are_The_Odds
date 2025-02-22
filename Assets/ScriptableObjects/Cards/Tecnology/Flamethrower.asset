@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nome: Flamethrower
   descricao: 'Burst heavy flames to the enemy dealing <style="damage">16</style>
-    damage and making them <color=orange>burn</color> 7 for 4 turns. '
+    damage and making them <color=orange>burn</color> 6 for 4 turns. '
   cardType: 2
   dano: 16
   combustivel: 5

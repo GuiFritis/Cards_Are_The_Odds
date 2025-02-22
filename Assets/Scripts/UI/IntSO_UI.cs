@@ -17,6 +17,7 @@ public class IntSO_UI : MonoBehaviour
 
     private void Awake()
     {
+        _label = GetComponent<TextMeshProUGUI>();
         _soInt.Value = _startValue;
         _soInt.OnValueChanged += UpdateUI;
         UpdateUI(_soInt.Value, 0);
