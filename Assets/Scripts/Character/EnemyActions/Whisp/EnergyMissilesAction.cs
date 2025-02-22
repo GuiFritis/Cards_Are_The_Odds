@@ -11,6 +11,7 @@ public class EnergyMissilesAction : BaseAction
     {
         for (int i = 0; i < _missilesOnCritSuccess; i++)
         {
+            PlayAudio();
             yield return new WaitForSeconds(_duration);
             _enemyCharacter.Health.TakeDamage(_damage);
         }
@@ -20,6 +21,7 @@ public class EnergyMissilesAction : BaseAction
     {   
         for (int i = 0; i < _missilesOnSuccess; i++)
         {
+            PlayAudio();
             yield return new WaitForSeconds(_duration);
             _enemyCharacter.Health.TakeDamage(_damage);
         }
@@ -27,13 +29,18 @@ public class EnergyMissilesAction : BaseAction
 
     protected override IEnumerator Failure(int result = 0)
     {
-        yield return new WaitForSeconds(_duration * 3);
+        for (int i = 0; i < _missilesOnSuccess-1; i++)
+        {
+            PlayAudio();
+            yield return new WaitForSeconds(_duration);
+        }
     }
 
     protected override IEnumerator CritFailure(int result)
     {
         for (int i = 0; i < _missilesOnSuccess; i++)
         {
+            PlayAudio();
             yield return new WaitForSeconds(_duration/2);
             _thisCharacter.Health.TakeDamage(_damage);
         }

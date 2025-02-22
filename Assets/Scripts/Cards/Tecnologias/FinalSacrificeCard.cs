@@ -10,6 +10,7 @@ public class FinalSacrificeCard : CardBase
 
     protected override IEnumerator CritSuccess(int result)
     {
+        PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration * 1.2f);
         _player.Health.TakeDamage(5);
         _enemy.Health.TakeDamage(_cardSO.dano);
@@ -17,6 +18,7 @@ public class FinalSacrificeCard : CardBase
 
     protected override IEnumerator Success(int result)
     {        
+        PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration);
         _player.Health.TakeDamage(15);
         _enemy.Health.TakeDamage(_cardSO.dano);
@@ -24,12 +26,14 @@ public class FinalSacrificeCard : CardBase
 
     protected override IEnumerator Failure(int result)
     {
+        PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration);
         _player.Health.TakeDamage(15);
     }
 
     protected override IEnumerator CritFailure(int result)
     {
+        PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration);
         _player.Health.TakeDamage(25);
     }

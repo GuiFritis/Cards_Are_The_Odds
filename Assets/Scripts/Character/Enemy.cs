@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(Character))]
@@ -30,6 +31,7 @@ public class Enemy : MonoBehaviour
     private IEnumerator Acting(Character character)
     {
         yield return new WaitForSeconds(.5f);
+        ShowAction();
         if(!character.IsStuned)
         {
             yield return StartCoroutine(_actions[_actionIndex].Activate(character.Advantage));
@@ -40,6 +42,15 @@ public class Enemy : MonoBehaviour
             _actionIndex = 0;
         }
         character.EndTurn();
+    }
+
+    private void ShowAction()
+    {
+        DamageText_UI _damageText = DamageText_Pooling.Instance.GetPoolItem();
+        _damageText.TextMesh.text = _actions[_actionIndex].ActionName;
+        _damageText.transform.position = transform.position - (100f * Vector3.up);
+        _damageText.TextMesh.color = Color.white;
+        _damageText.Play();
     }
 
     private void PlayBlowVFX(HealthBase hp, int damage)

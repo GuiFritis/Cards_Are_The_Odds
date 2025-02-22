@@ -10,6 +10,7 @@ public class StunningDart : CardBase
 
     protected override IEnumerator CritSuccess(int result)
     {
+        PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration);
         _enemy.Health.TakeDamage(_cardSO.dano * 3);
         _enemy.Stun();
@@ -17,6 +18,7 @@ public class StunningDart : CardBase
 
     protected override IEnumerator Success(int result)
     {
+        PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration);
         _enemy.Health.TakeDamage(_cardSO.dano);
         _enemy.Stun();
@@ -24,12 +26,14 @@ public class StunningDart : CardBase
     
     protected override IEnumerator Failure(int result = 0)
     {
+        PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration);
     }
 
     protected override IEnumerator CritFailure(int result)
     {
-        yield return new WaitForSeconds(_cardSO.duration*1.2f);
+        yield return new WaitForSeconds(_cardSO.duration);
+        PlayAudio();
         _player.Stun();
     }
 }

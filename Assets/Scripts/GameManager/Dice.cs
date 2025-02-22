@@ -1,13 +1,16 @@
 using System.Collections;
 using UnityEngine;
 using Utils.Singleton;
+using DG.Tweening;
 
 public class Dice : Singleton<Dice>
 {
     [SerializeField] private Animation _animation;
+    [SerializeField] private SOAudio _soAudio;
 
     public IEnumerator ThrowDice(System.Action<int> returnResult, int advantage = 0, int failure = -1, int success = -1)
     {
+        SFX_Pool.Instance.Play(_soAudio);
         if(_animation != null)
         {
             _animation.Play();
@@ -30,6 +33,7 @@ public class Dice : Singleton<Dice>
         {
             yield return new WaitForEndOfFrame();
         }
+        yield return new WaitForSeconds(1f);
         if(DamageText_Pooling.Instance != null)
         {
             DamageText_UI _damageText = DamageText_Pooling.Instance.GetPoolItem();
@@ -38,6 +42,7 @@ public class Dice : Singleton<Dice>
             _damageText.transform.position = transform.position;
             _damageText.Play(1.5f);
         }
+        yield return new WaitForSeconds(.3f);
     }
 
     private Color GetRollColor(int result, int success, int failure)

@@ -18,17 +18,20 @@ public class ReparationCard : CardBase
 
     protected override IEnumerator Success(int result)
     {
+        PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration);
         _player.Health.TakeDamage(_cardSO.dano);
     }
 
     protected override IEnumerator Failure(int result = 0)
     {
+        PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration/2);
     }
 
     protected override IEnumerator CritFailure(int result)
     {
+        PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration*1.2f);
         _player.Health.TakeDamage(5);
         _player.GiveAdvantage(-1);

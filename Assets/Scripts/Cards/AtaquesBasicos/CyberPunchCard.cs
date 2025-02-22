@@ -10,6 +10,7 @@ public class CyberPunchCard : CardBase
 
     protected override IEnumerator CritSuccess(int result)
     {
+        PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration);
         _enemy.Health.TakeDamage(_cardSO.dano * 2);
         _fuel.Value += _cardSO.combustivel;
@@ -17,6 +18,7 @@ public class CyberPunchCard : CardBase
 
     protected override IEnumerator Success(int result)
     {
+        PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration);
         _enemy.Health.TakeDamage(_cardSO.dano);
         _fuel.Value += _cardSO.combustivel;
@@ -24,11 +26,13 @@ public class CyberPunchCard : CardBase
 
     protected override IEnumerator Failure(int result = 0)
     {
+        PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration);
     }
 
     protected override IEnumerator CritFailure(int result)
     {
+        PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration);
         if(_fuel.Value > 0)
         {

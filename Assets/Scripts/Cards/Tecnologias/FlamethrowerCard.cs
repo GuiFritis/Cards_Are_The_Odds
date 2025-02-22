@@ -13,13 +13,15 @@ public class FlamethrowerCard : CardBase
 
     protected override IEnumerator CritSuccess(int result)
     {
-        yield return new WaitForSeconds(_cardSO.duration * 1.5f);
+        PlayAudio();
+        yield return new WaitForSeconds(_cardSO.duration);
         _enemy.Health.TakeDamage(_cardSO.dano);
         _enemy.DmgOverTime.AddBleedDamage(_burningDuration, _burningDamage + 5);
     }
 
     protected override IEnumerator Success(int result)
     {
+        PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration);
         _enemy.Health.TakeDamage(_cardSO.dano);
         _enemy.DmgOverTime.AddBleedDamage(_burningDuration, _burningDamage);
@@ -27,11 +29,13 @@ public class FlamethrowerCard : CardBase
 
     protected override IEnumerator Failure(int result = 0)
     {
+        PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration/2);
     }
 
     protected override IEnumerator CritFailure(int result)
     {
+        PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration);
         _player.Health.TakeDamage(_cardSO.dano);
         _player.GiveAdvantage(-1);

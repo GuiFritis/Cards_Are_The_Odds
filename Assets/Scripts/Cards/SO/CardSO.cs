@@ -15,6 +15,7 @@ public class CardSO : ScriptableObject
     public int falha;
     [Range(6, 19)]
     public int sucesso;
+    public SOAudio soAudio;
     public GameObject cardPFB;
 }
 

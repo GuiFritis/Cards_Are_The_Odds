@@ -16,9 +16,10 @@ public class StrafeCard : CardBase
     {
         for (int i = 0; i < _criticalShots; i++)
         {
+            PlayAudio();
+            yield return new WaitForSeconds(_cardSO.duration);
             _enemy.Health.TakeDamage(_cardSO.dano);
             _fuel.Value += _cardSO.combustivel;
-            yield return new WaitForSeconds(_cardSO.duration);
         }
     }
 
@@ -26,23 +27,30 @@ public class StrafeCard : CardBase
     {
         for (int i = 0; i < _shots; i++)
         {
+            PlayAudio();
+            yield return new WaitForSeconds(_cardSO.duration);
             _enemy.Health.TakeDamage(_cardSO.dano);
             _fuel.Value += _cardSO.combustivel;
-            yield return new WaitForSeconds(_cardSO.duration);
         }
     }
 
     protected override IEnumerator Failure(int result = 0)
     {
-        yield return new WaitForSeconds(_cardSO.duration * 3);
+        PlayAudio();
+        for (int i = 0; i < _shots; i++)
+        {
+            PlayAudio();
+            yield return new WaitForSeconds(_cardSO.duration);
+        }
     }
 
     protected override IEnumerator CritFailure(int result)
     {
         for (int i = 0; i < _selfDamageShots; i++)
         {
-            yield return new WaitForSeconds(_cardSO.duration);
+            PlayAudio();
             _player.Health.TakeDamage(_cardSO.dano);
+            yield return new WaitForSeconds(_cardSO.duration);
         }
     }
 }

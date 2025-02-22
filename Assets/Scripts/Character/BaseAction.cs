@@ -6,11 +6,14 @@ public abstract class BaseAction : MonoBehaviour, IAction
     protected Character _thisCharacter;
     protected Character _enemyCharacter;
     [SerializeField] protected string _actionName;
+    public string ActionName => _actionName;
     [SerializeField] protected int _success;
     [SerializeField] protected int _failure;
     [SerializeField] protected int _damage;
     [SerializeField] protected float _duration;
+    [SerializeField] protected SOAudio _soAudio;
     public System.Action<BaseAction> OnActionUsed;
+
     protected abstract IEnumerator CritSuccess(int result = 0);
     protected abstract IEnumerator Success(int result = 0);
     protected abstract IEnumerator Failure(int result = 0);
@@ -43,5 +46,10 @@ public abstract class BaseAction : MonoBehaviour, IAction
     {
         _thisCharacter = GameManager.Instance.GetEnemy;
         _enemyCharacter = GameManager.Instance.GetPlayer;
+    }
+
+    protected void PlayAudio()
+    {
+        SFX_Pool.Instance.Play(_soAudio);
     }
 }

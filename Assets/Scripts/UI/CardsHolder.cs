@@ -6,10 +6,11 @@ using UnityEngine;
 public class CardsHolder : MonoBehaviour
 {
     [SerializeField] private List<CardUI> _cards = new();
+    [SerializeField] private SOAudio _soAudio;
 
     void Awake()
     {
-        CardBase.OnCardActivated += card => DisableCards();
+        CardBase.OnCardActivated += DisableCards;
     }
 
     private void Start()
@@ -19,6 +20,7 @@ public class CardsHolder : MonoBehaviour
 
     public void DrawCard(CardUI card)
     {
+        SFX_Pool.Instance.Play(_soAudio);
         _cards.Add(card);
         card.Enable();
         card.transform.SetParent(transform);
@@ -32,8 +34,9 @@ public class CardsHolder : MonoBehaviour
         _cards.Remove(card);
     }
 
-    public void DisableCards()
+    public void DisableCards(CardBase cardBase)
     {
+        _cards.Remove(cardBase.GetCardUI);
         foreach (CardUI card in _cards)
         {
             card.Disable();

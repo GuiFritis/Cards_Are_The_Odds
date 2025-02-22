@@ -606,6 +606,8 @@ MonoBehaviour:
   _success: 10
   _failure: 2
   _damage: 10
+  _duration: 0
+  _soAudio: {fileID: 11400000, guid: b501ab18836bcad41b32936f799aeb23, type: 2}
   _bleedDamage: 3
   _bleedDuration: 4
 --- !u!114 &6935001616860209138
@@ -624,6 +626,8 @@ MonoBehaviour:
   _success: 15
   _failure: 5
   _damage: 10
+  _duration: 0
+  _soAudio: {fileID: 11400000, guid: 9bdee21465d2f9c40a6a9281fc89ac4d, type: 2}
 --- !u!114 &6985920982899370405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -640,6 +644,8 @@ MonoBehaviour:
   _success: 13
   _failure: 4
   _damage: 15
+  _duration: 0
+  _soAudio: {fileID: 11400000, guid: 56ae8872ace8fd9418ddf7c18e2e9d9a, type: 2}
 --- !u!114 &8697475408528426126
 MonoBehaviour:
   m_ObjectHideFlags: 0

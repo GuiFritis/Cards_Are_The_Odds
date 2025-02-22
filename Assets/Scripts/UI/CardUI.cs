@@ -8,7 +8,7 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
     [SerializeField] private float _transitionDuration = .4f;
     [SerializeField] private float _targetPositionY = 80f;
     [SerializeField] private float _scaleChange = 1.3f; 
-    [SerializeField] private CardBase cardBase;
+    [SerializeField] private CardBase _cardBase;
     private InitialPosition _initialPosition;
     private bool _enabled = false;
     [Header("UI Texts")]
@@ -18,28 +18,39 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
     [SerializeField] private TextMeshProUGUI _failureValue;
     void OnValidate()
     {
-        if(cardBase == null)
+        if(_cardBase == null)
         {
-            cardBase = GetComponent<CardBase>();
+            _cardBase = GetComponent<CardBase>();
         }
     }
 
     void Awake()
     {
-        if(cardBase == null)
+        if(_cardBase == null)
         {
-            cardBase = GetComponent<CardBase>();
+            _cardBase = GetComponent<CardBase>();
         }
+        CardBase.OnCardFinished += HideCard;
     }
 
     public void Disable()
     {
         _enabled = false;
+        transform.DOMoveY(-30f, _transitionDuration).SetRelative(true).SetEase(Ease.OutQuad);
     }
 
     public void Enable()
     {
         _enabled = true;
+    }
+
+    private void HideCard(CardBase card)
+    {
+        if(card.Equals(_cardBase))
+        {
+            transform.DOKill();
+            transform.DOScale(0, _transitionDuration);
+        }
     }
 
     public void SetPosition(Vector3 position, Quaternion rotation, int index)
@@ -56,11 +67,10 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(_enabled && cardBase.CanUse())
+        if(_enabled && _cardBase.CanUse())
         {
-            StartCoroutine(cardBase.Activate(GameManager.Instance.GetPlayer.Advantage));
-            transform.DOKill();
-            transform.DOScale(0, _transitionDuration);
+            transform.DOScale(1.4f, _transitionDuration);
+            StartCoroutine(_cardBase.Activate(GameManager.Instance.GetPlayer.Advantage));
             enabled = false;
         }
     }
@@ -93,9 +103,9 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
     [NaughtyAttributes.Button]
     private void SetUpCard()
     {
-        _cardName.text = cardBase.GetCardSO.nome;
-        _cardDescription.text = cardBase.GetCardSO.descricao;
-        _successValue.text = cardBase.GetCardSO.sucesso.ToString();
-        _failureValue.text = cardBase.GetCardSO.falha.ToString();
+        _cardName.text = _cardBase.GetCardSO.nome;
+        _cardDescription.text = _cardBase.GetCardSO.descricao;
+        _successValue.text = _cardBase.GetCardSO.sucesso.ToString();
+        _failureValue.text = _cardBase.GetCardSO.falha.ToString();
     }
 }

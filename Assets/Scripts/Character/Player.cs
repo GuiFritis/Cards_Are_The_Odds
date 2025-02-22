@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Utils;
@@ -15,14 +16,12 @@ public class Player : MonoBehaviour
         Character.OnTurnStart += TurnStart;
         Character.OnTurnEnd += TurnEnd;
         CardBase.OnCardActivated += CardUsed;
+        CardBase.OnCardFinished += EndTurn;
     }
 
     void Start()
     {
-        for (int i = 0; i < 5; i++)
-        {
-            DrawCard();
-        }
+        StartCoroutine(DrawCardsOnStart());
     }
 
     private void TurnStart(Character character)
@@ -41,7 +40,6 @@ public class Player : MonoBehaviour
             {
                 DrawCard();
             }
-            _cardHolder.DisableCards();
         }
     }
 
@@ -91,7 +89,10 @@ public class Player : MonoBehaviour
         card.transform.SetParent(transform);
         _drawnCards.Remove(card);
         _usedCards.Add(card);
-        _cardHolder.Discard(card.GetCardUI);
+    }
+
+    private void EndTurn(CardBase card)
+    {
         GameManager.Instance.GetPlayer.EndTurn();
     }
 
@@ -100,5 +101,14 @@ public class Player : MonoBehaviour
         _cards.AddRange(_usedCards);
         _usedCards.Clear();
         _cards.Shuffle();
+    }
+
+    private IEnumerator DrawCardsOnStart()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            yield return new WaitForSeconds(.2f);
+            DrawCard();
+        }
     }
 }

@@ -40,6 +40,10 @@ public abstract class CardBase : MonoBehaviour, ICard
     {
         int result = 0;
         OnCardActivated?.Invoke(this);
+        if(_cardSO.cardType == CardType.TECNOLOGY)
+        {
+            _fuel.Value -= _cardSO.combustivel;
+        }
         yield return StartCoroutine(Dice.Instance.ThrowDice(i => result = i, advantage, _cardSO.falha, _cardSO.sucesso));
         switch (result)
         {
@@ -58,6 +62,11 @@ public abstract class CardBase : MonoBehaviour, ICard
         }
         yield return new WaitForSeconds(.2f);
         OnCardFinished?.Invoke(this);
+    }
+
+    protected void PlayAudio()
+    {
+        SFX_Pool.Instance.Play(_cardSO.soAudio);
     }
 
     private void OnEnable()

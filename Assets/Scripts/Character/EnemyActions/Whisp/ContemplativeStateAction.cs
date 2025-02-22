@@ -14,6 +14,7 @@ public class ContemplativeStateAction : BaseAction
 
     protected override IEnumerator Success(int result)
     {   
+        PlayAudio();
         yield return new WaitForSeconds(_duration);
         _thisCharacter.Stun();
         Character.OnTurnEnd += Heal;
@@ -34,11 +35,13 @@ public class ContemplativeStateAction : BaseAction
 
     protected override IEnumerator Failure(int result = 0)
     {
+        PlayAudio();
         yield return new WaitForSeconds(_duration);
     }
 
     protected override IEnumerator CritFailure(int result)
     {
+        PlayAudio();
         yield return new WaitForSeconds(_duration);
         _thisCharacter.Stun();
     }
