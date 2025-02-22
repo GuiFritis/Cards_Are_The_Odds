@@ -12,27 +12,29 @@ public class BionicKickCard : CardBase
     protected override IEnumerator CritSuccess(int result)
     {
         yield return StartCoroutine(Success(result));
+        PlayAudio();
         _enemy.Stun();
     }
 
     protected override IEnumerator Success(int result)
     {
-        PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration);
+        PlayAudio();
         _enemy.Health.TakeDamage(_cardSO.dano);
         _fuel.Value += _cardSO.combustivel;
     }
 
     protected override IEnumerator Failure(int result = 0)
     {
-        PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration);
+        PlayAudio();
+        _enemy.Health.TakeDamage(0);
     }
 
     protected override IEnumerator CritFailure(int result)
     {
-        PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration);
+        PlayAudio();
         _player.Health.TakeDamage(_cardSO.dano/2);
         _player.GiveAdvantage(-1);
     }

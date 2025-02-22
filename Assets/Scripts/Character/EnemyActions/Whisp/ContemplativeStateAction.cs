@@ -37,6 +37,7 @@ public class ContemplativeStateAction : BaseAction
     {
         PlayAudio();
         yield return new WaitForSeconds(_duration);
+        _thisCharacter.Health.TakeDamage(0);
     }
 
     protected override IEnumerator CritFailure(int result)

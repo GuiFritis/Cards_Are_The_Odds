@@ -26,6 +26,7 @@ public class FireBallAction : BaseAction
     {
         yield return new WaitForSeconds(_duration);
         PlayAudio();
+        _enemyCharacter.Health.TakeDamage(0);
     }
 
     protected override IEnumerator CritFailure(int result)

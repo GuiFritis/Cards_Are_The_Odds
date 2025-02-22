@@ -34,12 +34,16 @@ public class CardsHolder : MonoBehaviour
         _cards.Remove(card);
     }
 
-    public void DisableCards(CardBase cardBase)
+    public void DisableCards(CardBase cardBase = null)
     {
-        _cards.Remove(cardBase.GetCardUI);
+        if(cardBase != null)
+        {
+            _cards.Remove(cardBase.GetCardUI);
+        }
         foreach (CardUI card in _cards)
         {
             card.Disable();
+            card.enabled = false;
         }
     }
 
@@ -48,6 +52,7 @@ public class CardsHolder : MonoBehaviour
         foreach (CardUI card in _cards)
         {
             card.Enable();
+            card.enabled = true;
         }
     }
 
@@ -67,6 +72,7 @@ public class CardsHolder : MonoBehaviour
                 Quaternion.Euler(Vector3.forward * (20 - (10 * i))), 
                 i
             );
+            _cards[i].enabled = true;
         }
     }
 

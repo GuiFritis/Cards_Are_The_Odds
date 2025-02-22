@@ -22,6 +22,10 @@ public class UpdateStatusUI : MonoBehaviour
 
     private void UpdateStun(int stun)
     {
+        if(gameObject == null)
+        {
+            return;
+        }
         if(stun == 0)
         {
             _stunUI.SetActive(false);

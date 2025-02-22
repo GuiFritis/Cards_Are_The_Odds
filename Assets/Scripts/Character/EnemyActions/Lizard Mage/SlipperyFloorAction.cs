@@ -18,8 +18,8 @@ public class SlipperyFloorAction : BaseAction
 
     protected override IEnumerator Failure(int result = 0)
     {
-        PlayAudio();
         yield return new WaitForSeconds(_duration);
+        _thisCharacter.Health.TakeDamage(0);
     }
 
     protected override IEnumerator CritFailure(int result)

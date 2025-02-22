@@ -11,7 +11,7 @@ public class EnergySphereCard : CardBase
     protected override IEnumerator CritSuccess(int result)
     {
         PlayAudio();
-        yield return new WaitForSeconds(_cardSO.duration * 2);
+        yield return new WaitForSeconds(_cardSO.duration);
         _enemy.Health.TakeDamage(_cardSO.dano + result - 10);
         _enemy.Stun();
     }
@@ -19,7 +19,7 @@ public class EnergySphereCard : CardBase
     protected override IEnumerator Success(int result)
     {        
         PlayAudio();
-        yield return new WaitForSeconds(_cardSO.duration * result/10);
+        yield return new WaitForSeconds(_cardSO.duration);
         _enemy.Health.TakeDamage(_cardSO.dano + result - 10);
     }
 
@@ -27,6 +27,7 @@ public class EnergySphereCard : CardBase
     {
         PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration);
+        _enemy.Health.TakeDamage(0);
     }
 
     protected override IEnumerator CritFailure(int result)

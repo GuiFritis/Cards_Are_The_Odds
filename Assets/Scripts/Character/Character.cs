@@ -29,11 +29,16 @@ public class Character : MonoBehaviour
         }
     }
 
+    void OnEnable()
+    {
+        _health.OnDeath += Death;
+    }
+
     public void StartTurn()
     {
+        LoseStun();
         OnTurnStart?.Invoke(this);
         _onTurn = true;
-        LoseStun();
         if(_stun > 0)
         {
             EndTurn();
@@ -95,5 +100,11 @@ public class Character : MonoBehaviour
             _advantage++;
         }
         OnAdvantage?.Invoke(_advantage);
+    }
+
+    private void Death(HealthBase hp)
+    {
+        _stun = 2;
+        Destroy(gameObject);
     }
 }

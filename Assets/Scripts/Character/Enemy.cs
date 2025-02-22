@@ -15,9 +15,19 @@ public class Enemy : MonoBehaviour
 
     void Awake()
     {
-        Character.OnTurnStart += Act;
         _health = GetComponent<HealthBase>();
+    }
+
+    void OnEnable()
+    {        
+        Character.OnTurnStart += Act;
         _health.OnDamage += PlayBlowVFX;
+    }
+
+    void OnDisable()
+    {        
+        Character.OnTurnStart -= Act;
+        _health.OnDamage -= PlayBlowVFX;
     }
 
     private void Act(Character character)
@@ -31,10 +41,14 @@ public class Enemy : MonoBehaviour
     private IEnumerator Acting(Character character)
     {
         yield return new WaitForSeconds(.5f);
-        ShowAction();
         if(!character.IsStuned)
         {
+            ShowAction(_actions[_actionIndex].ActionName);
             yield return StartCoroutine(_actions[_actionIndex].Activate(character.Advantage));
+        }
+        else
+        {
+            ShowAction("Sunned");
         }
         _actionIndex++;
         if(_actionIndex >= _actions.Count)
@@ -44,13 +58,13 @@ public class Enemy : MonoBehaviour
         character.EndTurn();
     }
 
-    private void ShowAction()
+    private void ShowAction(string action)
     {
         DamageText_UI _damageText = DamageText_Pooling.Instance.GetPoolItem();
-        _damageText.TextMesh.text = _actions[_actionIndex].ActionName;
+        _damageText.TextMesh.text = action;
         _damageText.transform.position = transform.position - (100f * Vector3.up);
         _damageText.TextMesh.color = Color.white;
-        _damageText.Play();
+        _damageText.Play(1, 35);
     }
 
     private void PlayBlowVFX(HealthBase hp, int damage)

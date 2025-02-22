@@ -22,7 +22,7 @@ public abstract class BaseAction : MonoBehaviour, IAction
     public IEnumerator Activate(int advantage = 0)
     {
         int result = 0;
-        yield return StartCoroutine(Dice.Instance.ThrowDice(i => result = i, advantage, _success, _failure));
+        yield return StartCoroutine(Dice.Instance.ThrowDice(i => result = i, advantage, _failure, _success));
         switch (result)
         {
             case 20:

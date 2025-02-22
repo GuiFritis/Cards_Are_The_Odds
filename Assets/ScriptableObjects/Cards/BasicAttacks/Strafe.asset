@@ -20,7 +20,7 @@ MonoBehaviour:
   cardType: 1
   dano: 3
   combustivel: 1
-  duration: 1
+  duration: 0.1
   falha: 3
   sucesso: 10
   soAudio: {fileID: 11400000, guid: 026b1f416cee13046a545473dc9d475c, type: 2}

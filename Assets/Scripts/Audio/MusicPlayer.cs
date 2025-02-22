@@ -1,49 +1,23 @@
-using System.Collections.Generic;
-using DG.Tweening;
 using UnityEngine;
-using Utils;
 
 public class MusicPlayer : MonoBehaviour
 {
-    [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private List<AudioClip> _songs;
-    [SerializeField] private bool _playOnAwake = true;
-    private float _volume;
+    [SerializeField] private AudioSource _audioSource1;
+    [SerializeField] private AudioSource _audioSource2;
 
-    private void Awake()
+    private void Start()
     {
-        _audioSource.clip = _songs.GetRandom();
-        _volume = _audioSource.volume;
-        if(_playOnAwake)
-        {
-            StartMusic();
-        }
+        _audioSource1.loop = false;
+        _audioSource1.Play();
     }
 
     private void Update()
     {
-        if(_audioSource.clip != null && !_audioSource.isPlaying)
+        if(_audioSource1.clip != null && _audioSource1.time >= _audioSource1.clip.length - (Time.deltaTime * 3))
         {
-            _audioSource.clip = _songs.GetRandom(_audioSource.clip);
-            StartMusic();
+            _audioSource2.loop = true;
+            _audioSource2.Play();
+            enabled = false;
         }
-    }
-
-    public void StartMusic()
-    {
-        _audioSource.Play(); 
-    }
-
-    private void OnDisable()
-    {
-        _audioSource.DOKill();
-        _audioSource.DOFade(0, 1f).OnComplete(() => _audioSource.Pause());
-    }
-
-    private void OnEnable()
-    {
-        _audioSource.UnPause();
-        _audioSource.DOKill();
-        _audioSource.DOFade(_volume, 1f);
     }
 }

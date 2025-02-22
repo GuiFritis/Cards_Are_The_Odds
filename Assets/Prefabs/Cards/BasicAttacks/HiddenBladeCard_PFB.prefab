@@ -88,32 +88,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1412816732048643494, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412816732048643494, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412816732048643494, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2263761316416782735, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_text
       value: Draws out a blade to surprise the enemy with a cutting edge dealing
         <style="damage">20</style> damage and making the enemy <color=red>bleed</color>
         4 for 5 turns on  a <style="success">critical success</style>.
       objectReference: {fileID: 0}
-    - target: {fileID: 2263761316416782735, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
-      propertyPath: m_fontSize
-      value: 8.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 2263761316416782735, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
-      propertyPath: m_fontColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2263761316416782735, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
-      propertyPath: m_fontColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2263761316416782735, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
-      propertyPath: m_fontColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2263761316416782735, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
+    - target: {fileID: 2991854778860219124, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dab91dcdb6ff7a54492f97bab523741c, type: 3}
     - target: {fileID: 3932712871042572770, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_Name
       value: HiddenBladeCard_PFB
@@ -148,15 +144,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4870649621725663318, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_fontSize
-      value: 16
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4870649621725663318, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4278190080
       objectReference: {fileID: 0}
+    - target: {fileID: 6568497358408407869, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -6.5848
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568497358408407869, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 105.3338
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568497358408407869, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -52.85588
+      objectReference: {fileID: 0}
     - target: {fileID: 6621809430056603866, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_text
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7359801123749632409, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_Size
+      value: 0.53393906
+      objectReference: {fileID: 0}
+    - target: {fileID: 7359801123749632409, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_Value
+      value: 1.0039078
       objectReference: {fileID: 0}
     - target: {fileID: 7833612242986622909, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_AnchorMax.y
@@ -182,6 +198,10 @@ PrefabInstance:
       propertyPath: cardBase
       value: 
       objectReference: {fileID: 7969966086422457474}
+    - target: {fileID: 7862162078088534042, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: _cardBase
+      value: 
+      objectReference: {fileID: 7969966086422457474}
     - target: {fileID: 8741872532395410265, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_text
       value: Hidden Blade
@@ -204,6 +224,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8921846702031373317, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043635367191345687, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -18.2033
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043635367191345687, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 59.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043635367191345687, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -3.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043635367191345687, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -69.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055449909467929099, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055449909467929099, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055449909467929099, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -235,5 +283,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cardSO: {fileID: 11400000, guid: 7238a4727d7b9b0488b23f5f01439892, type: 2}
   _fuel: {fileID: 11400000, guid: 6e3d0b6faabccc443bf62a6bccbc0e90, type: 2}
-  _bleedDamage: 4
-  _bleedDuration: 5

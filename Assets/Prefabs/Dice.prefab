@@ -49,4 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animation: {fileID: 0}
-  _soAudio: {fileID: 11400000, guid: 116ce7d309f639f48979f322569dbac5, type: 2}
+  _diceThrowAudio: {fileID: 11400000, guid: 116ce7d309f639f48979f322569dbac5, type: 2}
+  _criticalSuccessAudio: {fileID: 11400000, guid: 62a65d734d47c4e44b70a63d3a414370, type: 2}
+  _successAudio: {fileID: 11400000, guid: d0abef7324eafbd41b709b36800edf3e, type: 2}
+  _failureAudio: {fileID: 11400000, guid: f92d15ced5d71744cacb381cb04eaf4d, type: 2}
+  _criticalFailureAudio: {fileID: 11400000, guid: f7abf86d0c029074e853e23f10e47909, type: 2}

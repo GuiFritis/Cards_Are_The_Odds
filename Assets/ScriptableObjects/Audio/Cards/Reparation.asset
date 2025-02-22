@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Reparation
   m_EditorClassIdentifier: 
   audioClips:
-  - {fileID: 8300000, guid: 56227355334454a669691eddf1801cb9, type: 3}
   - {fileID: 8300000, guid: b878334bbc55e4e94abc0354bc2f2838, type: 3}
-  pitch: 1
+  pitch: 0.9
   randomizePith: 1
-  pitchRange: 0.05
+  pitchRange: 0.15
   volume: 0.75

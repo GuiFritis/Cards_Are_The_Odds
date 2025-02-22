@@ -23,6 +23,7 @@ public class MindGaspAction : BaseAction
     {
         PlayAudio();
         yield return new WaitForSeconds(_duration);
+        _enemyCharacter.Health.TakeDamage(0);
     }
 
     protected override IEnumerator CritFailure(int result)

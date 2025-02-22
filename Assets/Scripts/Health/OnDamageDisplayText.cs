@@ -28,11 +28,11 @@ public class OnDamageDisplayText : MonoBehaviour
         if(DamageText_Pooling.Instance != null)
         {
             _damageText = DamageText_Pooling.Instance.GetPoolItem();
-            _damageText.TextMesh.text = (damage <= 1 ? 1 : Mathf.Round(damage)).ToString();
+            _damageText.TextMesh.text = damage==0?"Miss":Mathf.Abs(damage).ToString();
             _damageText.transform.position = _uiPosition 
                     ? transform.position + (_spawnTextOffsetY * Vector3.up)
                     : _camera.WorldToScreenPoint(transform.position + (_spawnTextOffsetY * Vector3.up));
-            _damageText.TextMesh.color = damage > 0 ? Color.yellow : Color.green;
+            _damageText.TextMesh.color = damage >= 0 ? Color.yellow : Color.green;
             _damageText.Play();
         }
     }

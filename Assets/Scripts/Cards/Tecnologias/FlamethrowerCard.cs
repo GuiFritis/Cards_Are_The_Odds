@@ -16,7 +16,7 @@ public class FlamethrowerCard : CardBase
         PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration);
         _enemy.Health.TakeDamage(_cardSO.dano);
-        _enemy.DmgOverTime.AddBleedDamage(_burningDuration, _burningDamage + 5);
+        _enemy.DmgOverTime.AddBurnDamage(_burningDuration, _burningDamage + 5);
     }
 
     protected override IEnumerator Success(int result)
@@ -24,13 +24,14 @@ public class FlamethrowerCard : CardBase
         PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration);
         _enemy.Health.TakeDamage(_cardSO.dano);
-        _enemy.DmgOverTime.AddBleedDamage(_burningDuration, _burningDamage);
+        _enemy.DmgOverTime.AddBurnDamage(_burningDuration, _burningDamage);
     }
 
     protected override IEnumerator Failure(int result = 0)
     {
         PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration/2);
+        _enemy.Health.TakeDamage(0);
     }
 
     protected override IEnumerator CritFailure(int result)

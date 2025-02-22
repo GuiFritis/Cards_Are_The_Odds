@@ -18,7 +18,7 @@ public class FloatingTextOnValueChange : MonoBehaviour
             _damageText.TextMesh.text = change.ToString();
             _damageText.transform.position = transform.position + (Vector3.up * _offsetY);
             _damageText.TextMesh.color = Color.black;
-            _damageText.Play();
+            _damageText.Play(0.8f, 28);
         }
     }
 

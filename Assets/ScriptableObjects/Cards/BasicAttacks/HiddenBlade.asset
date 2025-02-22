@@ -17,9 +17,9 @@ MonoBehaviour:
     <style="damage">20</style> damage and making the enemy <color=red>bleed</color>
     4 for 5 turns on  a <style="success">critical success</style>.
   cardType: 1
-  dano: 20
+  dano: 14
   combustivel: 2
-  duration: 1
+  duration: 0.2
   falha: 4
   sucesso: 11
   soAudio: {fileID: 11400000, guid: 1504475ef4951b743bc5e6352f42bd68, type: 2}

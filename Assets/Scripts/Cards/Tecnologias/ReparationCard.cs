@@ -27,6 +27,7 @@ public class ReparationCard : CardBase
     {
         PlayAudio();
         yield return new WaitForSeconds(_cardSO.duration/2);
+        _player.Health.TakeDamage(0);
     }
 
     protected override IEnumerator CritFailure(int result)

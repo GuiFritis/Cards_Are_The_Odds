@@ -28,14 +28,31 @@ public class Player : MonoBehaviour
     {
         if(character.gameObject.Equals(gameObject))
         {
-            _cardHolder.EnableCards();
+            if(character.IsStuned)
+            {
+                DisplayStunned();
+            }
+            else
+            {
+                _cardHolder.EnableCards();
+            }
         }
+    }
+
+    private void DisplayStunned()
+    {
+        DamageText_UI text_UI = DamageText_Pooling.Instance.GetPoolItem();
+        text_UI.TextMesh.text = "Stunned";
+        text_UI.TextMesh.color = Color.white;
+        text_UI.transform.position = transform.position + (20f * Vector3.up);
+        text_UI.Play(0.8f, 28);
     }
 
     private void TurnEnd(Character character)
     {
         if(character.gameObject.Equals(gameObject))
         {
+            _cardHolder.DisableCards();
             if(_drawnCards.Count < 5)
             {
                 DrawCard();

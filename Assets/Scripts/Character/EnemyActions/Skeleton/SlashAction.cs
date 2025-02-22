@@ -8,9 +8,8 @@ public class SlashAction : BaseAction
 
     protected override IEnumerator CritSuccess(int result)
     {
-        PlayAudio();
         yield return StartCoroutine(Success(result));
-        _enemyCharacter.DmgOverTime.AddBurnDamage(_bleedDuration, _bleedDamage);
+        _enemyCharacter.DmgOverTime.AddBleedDamage(_bleedDuration, _bleedDamage);
     }
 
     protected override IEnumerator Success(int result)
@@ -24,6 +23,7 @@ public class SlashAction : BaseAction
     {
         PlayAudio();
         yield return new WaitForSeconds(_duration);        
+        _enemyCharacter.Health.TakeDamage(0);
     }
 
     protected override IEnumerator CritFailure(int result)

@@ -42,6 +42,7 @@ public class HealthBase : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        damage = Mathf.Clamp(damage, _curHealth - baseHealth, _curHealth);
         _curHealth -= damage;
         OnDamage?.Invoke(this, damage);
         if(_curHealth <= 0 && !dead)

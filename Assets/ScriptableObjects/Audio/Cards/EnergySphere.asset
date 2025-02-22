@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: EnergySphere
   m_EditorClassIdentifier: 
   audioClips:
-  - {fileID: 8300000, guid: b6968f1807cdb40af9533cf7bc1e5e7f, type: 3}
-  pitch: 1
+  - {fileID: 8300000, guid: bca37a64604704def8659e7c2769936d, type: 3}
+  pitch: 1.1
   randomizePith: 1
-  pitchRange: 0.05
-  volume: 0.72
+  pitchRange: 0.2
+  volume: 0.7

@@ -16,5 +16,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e5f93a5297603479283f5159748502b0, type: 3}
   pitch: 1
   randomizePith: 1
-  pitchRange: 0.05
+  pitchRange: 0.2
   volume: 0.9

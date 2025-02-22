@@ -21,8 +21,9 @@ public class DamageText_UI : MonoBehaviour, IPoolItem
         gameObject.SetActive(false);
     }
 
-    public void Play(float speed = 1f)
+    public void Play(float speed = 1f, float fontSize = 24f)
     {
+        _textMesh.fontSize = fontSize;
         _textMesh.DOColor(Color.clear, speed * .2f).SetEase(Ease.OutCirc).From(true);
         transform.DOMoveY(30f, speed * .5f).SetEase(Ease.OutCirc).SetRelative(true);
         transform.DOMoveX(Random.Range(-1, 2) * 10f, speed * .5f).SetEase(Ease.OutCirc).SetRelative(true);

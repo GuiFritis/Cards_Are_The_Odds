@@ -33,6 +33,7 @@ public class EnergyMissilesAction : BaseAction
         {
             PlayAudio();
             yield return new WaitForSeconds(_duration);
+            _enemyCharacter.Health.TakeDamage(0);
         }
     }
 
