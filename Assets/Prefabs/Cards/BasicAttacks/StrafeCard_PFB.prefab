@@ -99,6 +99,14 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 9.65
       objectReference: {fileID: 0}
+    - target: {fileID: 2991854778860219124, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f67078fae2f8cb34781e0ebf505e2557, type: 3}
+    - target: {fileID: 2991854778860219124, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3932712871042572770, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_Name
       value: StrafeCard_PFB
@@ -157,7 +165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7359801123749632409, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_Size
-      value: 0.89131427
+      value: 0.8945562
       objectReference: {fileID: 0}
     - target: {fileID: 7359801123749632409, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_Value
@@ -214,6 +222,14 @@ PrefabInstance:
     - target: {fileID: 8921846702031373317, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043635367191345687, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -9.8585
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043635367191345687, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 63.2471
       objectReference: {fileID: 0}
     - target: {fileID: 9055449909467929099, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_AnchorMax.x

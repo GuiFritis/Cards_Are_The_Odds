@@ -34,6 +34,11 @@ public class Character : MonoBehaviour
         _health.OnDeath += Death;
     }
 
+    void OnDisable()
+    {
+        _health.OnDeath -= Death;
+    }
+
     public void StartTurn()
     {
         LoseStun();

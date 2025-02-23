@@ -604,8 +604,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 5131618079034370129}
-  _spawnTextOffsetY: -50
-  _uiPosition: 0
+  _spawnTextOffsetY: -100
+  _uiPosition: 1
 --- !u!114 &5131618079034370129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -686,7 +686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _character: {fileID: 4276286318900736107}
-  _stunUI: {fileID: 0}
+  _stunUI: {fileID: 8187775455805418375}
   _advantageUI: {fileID: 6202189743502553984}
   _advantageText: {fileID: 1982659207957903518}
   _advantageIcon: {fileID: 21300000, guid: 2987ffef708976144802ba1652bddb71, type: 3}

@@ -30,17 +30,18 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
         {
             _cardBase = GetComponent<CardBase>();
         }
-        CardBase.OnCardFinished += HideCard;
     }
 
     public void Disable()
     {
+        CardBase.OnCardFinished -= HideCard;
         _enabled = false;
         transform.DOMoveY(-30f, _transitionDuration).SetRelative(true).SetEase(Ease.OutQuad);
     }
 
     public void Enable()
     {
+        CardBase.OnCardFinished += HideCard;
         _enabled = true;
     }
 

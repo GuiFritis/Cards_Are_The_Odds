@@ -5,9 +5,14 @@ public class FloatingTextOnValueChange : MonoBehaviour
     [SerializeField] private SOInt _soInt;
     [SerializeField] private float _offsetY;
 
-    void Start()
+    void OnEnable()
     {
         _soInt.OnValueChanged += PlayText;
+    }
+    
+    void OnDisable()
+    {
+        _soInt.OnValueChanged -= PlayText;
     }
 
     private void PlayText(int value, int change)
