@@ -110,6 +110,18 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2991854778860219124, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 16f5e39e1afc55445867b078ee61b9f1, type: 3}
+    - target: {fileID: 2991854778860219124, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2991854778860219124, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3932712871042572770, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_Name
       value: EnergySphereCard_PFB
@@ -229,6 +241,14 @@ PrefabInstance:
     - target: {fileID: 8921846702031373317, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043635367191345687, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.0920029
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043635367191345687, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -68.8
       objectReference: {fileID: 0}
     - target: {fileID: 9055449909467929099, guid: 63e3d78dbc1ff7643bcbfc5e6fff7067, type: 3}
       propertyPath: m_AnchorMax.x

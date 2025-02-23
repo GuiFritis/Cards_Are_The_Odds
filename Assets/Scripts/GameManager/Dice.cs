@@ -45,7 +45,7 @@ public class Dice : Singleton<Dice>
             _damageText.Play(.8f, result<failure||result==20?40:24);
         }
         SFX_Pool.Instance.Play(GetAudio(result, failure, success));
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.8f);
     }
 
     private Color GetRollColor(int result, int failure, int success)
