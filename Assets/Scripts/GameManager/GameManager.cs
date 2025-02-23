@@ -105,7 +105,7 @@ public class GameManager : Singleton<GameManager>
             () => {
                 _enemy = _enemiesList[_enemyIndex].GetComponent<Character>();
                 _enemy = Instantiate(_enemy, transform.parent);
-                _enemy.transform.SetSiblingIndex(transform.GetSiblingIndex()-1);
+                _enemy.transform.SetAsFirstSibling();
                 _enemy.Health.OnDeath += EnemyDeath;
                 _enemy.Health.OnDamage += FlashSprite;
                 OnEnemySpawned?.Invoke(_enemy);

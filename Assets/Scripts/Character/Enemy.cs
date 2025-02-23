@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
 
     private void Act(Character character)
     {
-        if(character.gameObject.Equals(gameObject))
+        if(character.gameObject.Equals(gameObject) && gameObject.activeInHierarchy)
         {
             StartCoroutine(Acting(character));
         }
