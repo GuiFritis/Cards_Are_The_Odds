@@ -68,7 +68,7 @@ public class Enemy : MonoBehaviour
     {
         DamageText_UI _damageText = DamageText_Pooling.Instance.GetPoolItem();
         _damageText.TextMesh.text = action;
-        _damageText.transform.position = transform.position - (100f * Vector3.up);
+        _damageText.transform.position = transform.position - (150f * Vector3.up);
         _damageText.TextMesh.color = Color.white;
         _damageText.Play(1, 35);
     }
